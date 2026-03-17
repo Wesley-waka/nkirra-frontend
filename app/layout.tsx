@@ -27,18 +27,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${sourceSans.variable} ${manrope.variable} antialiased dark:bg-black dark:text-white`}
-      >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="black"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </body>
+      <body className={`${sourceSans.variable} ${manrope.variable} antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"  // ✅ valid value
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
