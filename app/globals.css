@@ -4,9 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-html, body {
-  height: 100%;
-}
 
 @theme inline {
   --color-background: var(--background);
@@ -62,8 +59,8 @@ html, body {
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(100% 0.00011 271.152);
-  /* --primary: oklch(0.205 0 0); */
+  /* --primary: oklch(100% 0.00011 271.152); */
+  --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -130,6 +127,14 @@ html, body {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @layer base {

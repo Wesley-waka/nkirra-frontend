@@ -16,7 +16,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Nkirra",
+  title: "Nkirra - Finance For Everyone.",
   description: "Finance for everyone.",
 };
 
@@ -28,14 +28,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${sourceSans.variable} ${manrope.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"  // ✅ valid value
-          enableSystem
+        {/* <ThemeProvider
+          
+          defaultTheme="white"
           disableTransitionOnChange
-        >
+        > */}
           {children}
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );
