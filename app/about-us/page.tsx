@@ -154,7 +154,7 @@ export default function AboutUs() {
         </div>
 
 
-<div className="bg-green-100 mx-auto min-h-[500px] lg:h-[700px] flex flex-col items-center justify-center px-4">
+<div className="bg-green-100 mx-auto min-h-[500px] lg:h-[700px] flex flex-col items-center justify-center py-4 sm:py-0 px-4">
     <div className="max-w-7xl mx-auto justify-center flex flex-col lg:flex-row gap-8 lg:gap-12">
         <div className="w-full lg:w-1/2 h-auto lg:h-[600px] rounded-xl">
         <Image
@@ -165,7 +165,7 @@ export default function AboutUs() {
         className='object-cover rounded-lg'
         />
         </div>
-        <div className="w-full lg:w-1/2 inline-flex flex-col justify-center items-start gap-8 px-4">
+        <div className="w-full lg:w-1/2 inline-flex flex-col justify-center items-start gap-8 px-4 ">
           <div className="self-stretch flex flex-col justify-start items-start gap-6">
             <div className="w-full max-w-[566px] flex flex-col justify-start items-start gap-4">
               <div className="px-4 py-1 rounded-2xl outline outline-1 outline-offset-[-1px] outline-slate-500 inline-flex justify-center items-center gap-3">
@@ -296,7 +296,7 @@ export default function AboutUs() {
         </div>
     </div>
 
-    <div className="w-full lg:w-1/2 min-h-[500px] lg:h-[700px] bg-lime-200 rounded-xl flex flex-col items-center gap-6 justify-center px-4">
+    <div className="w-full py-4 sm:py-0 lg:w-1/2 min-h-[500px] lg:h-[700px] bg-lime-200 rounded-xl flex flex-col items-center gap-6 justify-center px-4">
 
     <Image src="/graphics/balance.jpg" alt="Collaborate" width={400} height={800} className='w-full max-w-[540px] rounded-xl' />
 
