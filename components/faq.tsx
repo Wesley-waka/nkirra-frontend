@@ -67,31 +67,31 @@ export default function FAQPage() {
   }, [openItem]);
 
   return (
-    <div className="bg-green-bg font-sans w-full px-5 py-16">
-      <div className="w-full flex flex-col gap-4">
+    <div className="bg-green-bg font-sans w-full px-5 py-8 sm:px-8 sm:py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
+      <div className="w-full max-w-6xl mx-auto flex flex-col gap-4">
 
         {/* Accordion */}
         <div className="flex flex-col gap-3.5 w-full">
           {faqItems.map((item, index) => (
             <div
               key={item.id}
-              className={`w-full p-6 bg-blue-100 rounded-2xl outline outline-1 outline-offset-[-1px] ${
+              className={`w-full p-4 sm:p-5 md:p-6 bg-blue-100 rounded-2xl outline outline-1 outline-offset-[-1px] ${
                 openItem === item.id ? "outline-blue-900" : "outline-slate-200"
               } flex flex-col gap-2 transition-all duration-300 cursor-pointer`}
               onClick={() => toggleItem(item.id)}
             >
-              <div className="w-full flex justify-between items-start">
-                <div className="flex-1 text-blue-900 text-xl font-semibold leading-6">
+              <div className="w-full flex justify-between items-start gap-3">
+                <div className="flex-1 text-blue-900 text-lg sm:text-xl font-semibold leading-5 sm:leading-6">
                   {item.question}
                 </div>
 
                 {/* Icon */}
-                <div className="w-6 h-6 relative">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 relative flex-shrink-0">
                   {/* Horizontal bar */}
-                  <div className="w-4 h-0.5 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-blue-900" />
+                  <div className="w-3 sm:w-4 h-0.5 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-blue-900" />
                   {/* Vertical bar (hidden when open) */}
                   <div
-                    className={`w-0.5 h-4 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-blue-900 transition-all duration-300 ${
+                    className={`w-0.5 h-3 sm:h-4 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-blue-900 transition-all duration-300 ${
                       openItem === item.id ? "opacity-0 scale-y-0" : "opacity-100 scale-y-100"
                     }`}
                   />
@@ -107,7 +107,7 @@ export default function FAQPage() {
                   openItem === item.id ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
-                <div className="text-slate-500 text-base leading-6 pt-1">
+                <div className="text-slate-500 text-sm sm:text-base leading-5 sm:leading-6 pt-1">
                   {item.answer}
                 </div>
               </div>
