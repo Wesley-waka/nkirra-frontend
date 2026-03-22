@@ -27,11 +27,11 @@ export default function AboutUs() {
                      <nav className="hidden sm:flex gap-6 md:gap-10 items-center">
                        <div
                          onClick={() => router.push("/")}
-                         className="cursor-pointer text-sm md:text-base font-medium hover:text-teal-700 transition-colors"
+                         className="cursor-pointer text-base md:text-lg font-medium hover:text-blue-700 transition-colors"
                        >
                          Home
                        </div>
-                       <div className="cursor-pointer bg-green-100 px-4 py-1.5 rounded-lg text-sm md:text-base font-medium">
+                       <div className="cursor-pointer bg-blue-100 px-4 py-1.5 rounded-lg text-base md:text-lg font-medium">
                          About Us
                        </div>
                      </nav>
@@ -39,7 +39,7 @@ export default function AboutUs() {
                      {/* Desktop CTA */}
                      <Button
                        variant="default_bg"
-                       className="hidden sm:inline-flex items-center justify-center w-[130px] md:w-[150px] h-[40px] md:h-[44px] text-sm md:text-base bg-[#FF4444] rounded-xl"
+                       className="hidden sm:inline-flex items-center justify-center w-[130px] md:w-[150px] h-[40px] md:h-[44px] text-sm md:text-base bg-brand-primary rounded-xl"
                      >
                        Get Started
                      </Button>
@@ -65,16 +65,16 @@ export default function AboutUs() {
                              router.push("/");
                              setIsMobileMenuOpen(false);
                            }}
-                           className="cursor-pointer py-2 text-center font-medium text-sm hover:bg-gray-50 rounded-lg transition-colors"
+                           className="cursor-pointer py-2 text-center font-medium text-base hover:bg-gray-50 rounded-lg transition-colors"
                          >
                            Home
                          </div>
-                         <div className="cursor-pointer bg-green-100 py-2 px-4 rounded-lg text-center font-medium text-sm">
+                         <div className="cursor-pointer bg-blue-100 py-2 px-4 rounded-lg text-center font-medium text-base">
                            About Us
                          </div>
                          <Button
                            variant="default_bg"
-                           className="w-full h-[42px] text-sm bg-[#FF4444] rounded-xl"
+                           className="w-full h-[42px] text-base bg-brand-primary rounded-xl"
                          >
                            Get Started
                          </Button>
@@ -87,18 +87,18 @@ export default function AboutUs() {
 
         <div className="flex items-center justify-center">
             <div className="self-stretch inline-flex flex-col justify-start items-center gap-6">
-  <div className="pl-1.5 pr-3 py-1.5 bg-lime-200 rounded-2xl inline-flex justify-center items-center gap-3">
+  <div className="pl-1.5 pr-3 py-1.5 bg-red-200 rounded-2xl inline-flex justify-center items-center gap-3">
     <div className="pl-1.5 pr-2 py-1 bg-white rounded-xl flex justify-center items-center gap-1">
-      <div className="w-2 h-2 p-px relative bg-lime-100 rounded flex justify-between items-center">
+      <div className="w-2 h-2 p-px relative bg-red-100 rounded flex justify-between items-center">
         <div className="w-1.5 h-1.5 bg-stone-100 rounded-full" />
         <div className="w-1 h-1 left-[2px] top-[2px] absolute bg-teal-900 rounded-full" />
       </div>
-      <div className="justify-center text-teal-900 text-xs font-medium  leading-5">Nkirra</div>
+      <div className="justify-center text-brand text-sm sm:text-base font-medium  leading-5">Nkirra</div>
     </div>
-    <div className="justify-center text-teal-900 text-sm font-medium  leading-6">About Us</div>
+    <div className="justify-center text-brand text-base sm:text-lg font-medium  leading-6">About Us</div>
   </div>
-  <div className="w-full max-w-[922px] px-4 text-center justify-start text-teal-900 text-4xl sm:text-5xl lg:text-7xl font-semibold  capitalize leading-[40px] sm:leading-[60px] lg:leading-[82px]">Built to Redefine How You Manage Your Money</div>
-  <div className="w-full max-w-[848px] px-4 text-center justify-start text-slate-500 text-lg sm:text-xl font-normal  leading-7 sm:leading-9">Nkirra empowers individuals and teams to take full control of their <br/>finances—smarter, faster, and with clarity.</div>
+  <div className="w-full max-w-[922px] px-4 text-center justify-start text-brand text-3xl sm:text-4xl lg:text-6xl font-semibold  capitalize leading-[35px] sm:leading-[50px] lg:leading-[72px]">Built to Redefine How You Manage Your Money</div>
+  <div className="w-full max-w-[848px] px-4 text-center justify-start text-slate-500 text-base sm:text-lg font-normal  leading-6 sm:leading-8">Nkirra empowers individuals and teams to take full control of their <br/>finances—smarter, faster, and with clarity.</div>
 </div>
         </div>
 
@@ -135,26 +135,26 @@ export default function AboutUs() {
         <div className='max-w-8xl flex items-center'>
             <div className=" px-6 sm:px-16 lg:px-28 pt-8 sm:pt-14 pb-12 sm:pb-28 inline-flex flex-col lg:flex-row justify-between items-start w-full gap-8">
               <div className="inline-flex flex-col justify-center items-start gap-2">
-                <div className="justify-start text-teal-900 text-3xl sm:text-4xl lg:text-6xl font-semibold  capitalize leading-[32px] sm:leading-[48px] lg:leading-[64px]">$120M+</div>
-                <div className="justify-start text-slate-500 text-base font-normal  leading-6">Tracked Through Nkirra</div>
+                <div className="justify-start text-brand text-2xl sm:text-3xl lg:text-5xl font-semibold  capitalize leading-[28px] sm:leading-[40px] lg:leading-[56px]">$120M+</div>
+                <div className="justify-start text-slate-500 text-sm sm:text-base font-normal  leading-5 sm:leading-6">Tracked Through Nkirra</div>
               </div>
               <div className="inline-flex flex-col justify-center items-start gap-2">
-                <div className="justify-start text-teal-900 text-3xl sm:text-4xl lg:text-6xl font-semibold  capitalize leading-[32px] sm:leading-[48px] lg:leading-[64px]">1M+</div>
-                <div className="justify-start text-slate-500 text-base font-normal  leading-6">Transactions Processed</div>
+                <div className="justify-start text-brand text-2xl sm:text-3xl lg:text-5xl font-semibold  capitalize leading-[28px] sm:leading-[40px] lg:leading-[56px]">1M+</div>
+                <div className="justify-start text-slate-500 text-sm sm:text-base font-normal  leading-5 sm:leading-6">Transactions Processed</div>
               </div>
               <div className="inline-flex flex-col justify-center items-start gap-2">
-                <div className="justify-start text-teal-900 text-3xl sm:text-4xl lg:text-6xl font-semibold  capitalize leading-[32px] sm:leading-[48px] lg:leading-[64px]">12K+</div>
-                <div className="justify-start text-slate-500 text-base font-normal  leading-6">Goals Achieved With Saving Plans</div>
+                <div className="justify-start text-brand text-2xl sm:text-3xl lg:text-5xl font-semibold  capitalize leading-[28px] sm:leading-[40px] lg:leading-[56px]">12K+</div>
+                <div className="justify-start text-slate-500 text-sm sm:text-base font-normal  leading-5 sm:leading-6">Goals Achieved With Saving Plans</div>
               </div>
               <div className="inline-flex flex-col justify-center items-start gap-2">
-                <div className="justify-start text-teal-900 text-3xl sm:text-4xl lg:text-6xl font-semibold  capitalize leading-[32px] sm:leading-[48px] lg:leading-[64px]">98%</div>
-                <div className="justify-start text-slate-500 text-base font-normal  leading-6">Customer Satisfaction</div>
+                <div className="justify-start text-brand text-2xl sm:text-3xl lg:text-5xl font-semibold  capitalize leading-[28px] sm:leading-[40px] lg:leading-[56px]">98%</div>
+                <div className="justify-start text-slate-500 text-sm sm:text-base font-normal  leading-5 sm:leading-6">Customer Satisfaction</div>
               </div>
             </div>
         </div>
 
 
-<div className="bg-green-100 mx-auto min-h-[500px] lg:h-[700px] flex flex-col items-center justify-center py-4 sm:py-0 px-4">
+<div className="bg-blue-100 mx-auto min-h-[500px] lg:h-[700px] flex flex-col items-center justify-center py-4 sm:py-0 px-4">
     <div className="max-w-7xl mx-auto justify-center flex flex-col lg:flex-row gap-8 lg:gap-12">
         <div className="w-full lg:w-1/2 h-auto lg:h-[600px] rounded-xl">
         <Image
@@ -169,17 +169,24 @@ export default function AboutUs() {
           <div className="self-stretch flex flex-col justify-start items-start gap-6">
             <div className="w-full max-w-[566px] flex flex-col justify-start items-start gap-4">
               <div className="px-4 py-1 rounded-2xl outline outline-1 outline-offset-[-1px] outline-slate-500 inline-flex justify-center items-center gap-3">
-                <div className="justify-center text-slate-500 text-sm font-medium  leading-6">Our Story</div>
+                <div className="justify-center text-slate-500 text-base sm:text-sm font-medium  leading-6">Our Story</div>
               </div>
-              <div className="self-stretch justify-start text-teal-900 text-3xl sm:text-4xl lg:text-6xl font-semibold capitalize leading-[32px] sm:leading-[48px] lg:leading-[64px]">Why We Built Nkirra</div>
+              <div className="self-stretch justify-start text-brand text-2xl sm:text-3xl lg:text-5xl font-semibold capitalize leading-[28px] sm:leading-[40px] lg:leading-[56px]">Why We Built Nkirra</div>
             </div>
-            <div className="self-stretch justify-start text-slate-500 text-lg sm:text-xl font-normal leading-7 sm:leading-9">We started Nkirra with a simple yet powerful idea: make finance management easy, accessible, and insightful for everyone. After experiencing the stress of scattered spreadsheets, confusing apps, and data overload, our team set out to create a unified dashboard that helps users make sense of their money.</div>
+            <div className="self-stretch justify-start text-slate-500 text-base sm:text-lg font-normal leading-6 sm:leading-8">We started Nkirra with a simple yet powerful idea: make finance management easy, accessible, and insightful for everyone. After experiencing the stress of scattered spreadsheets, confusing apps, and data overload, our team set out to create a unified dashboard that helps users make sense of their money.</div>
           </div>
           {/* <div data-size="Large" data-type="Fill" className="px-6 py-3 bg-lime-200 rounded-2xl inline-flex justify-center items-center gap-2.5 overflow-hidden">
             <div className="justify-start text-stone-950 text-lg font-semibold  leading-8">Get Started Free</div>
 
           </div> */}
-                       <Button variant="default_bg" className="px-18 w-[180px] h-[50px] text-md bg-lime-200 text-black mt-10">Get Started</Button>
+                       {/* <Button variant="default_bg" className="px-18 w-[180px] h-[50px] text-md  text-black mt-10">Get Started</Button> */}
+                       <Button
+                       variant="default_bg"
+                       className="hidden sm:inline-flex items-center justify-center w-[130px] md:w-[150px] h-[40px] md:h-[44px] text-sm md:text-base bg-brand-primary rounded-xl"
+                     >
+                       Get Started
+                     </Button>
+                       
 
         </div>
     </div>
@@ -188,14 +195,14 @@ export default function AboutUs() {
 
 <div className="max-w-7xl mx-auto py-8 lg:py-16 px-4">
     <div className="px-4 py-1 rounded-2xl outline outline-1 outline-offset-[-1px] outline-slate-200 inline-flex justify-center items-center gap-3">
-      <div className="justify-center text-slate-500 text-sm font-medium  leading-6">Mission Statement</div>
+      <div className="justify-center text-slate-500 text-base sm:text-sm font-medium  leading-6">Mission Statement</div>
     </div>
     <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
       <div className="w-full lg:w-[700px] inline-flex flex-col justify-start items-start gap-4">
     
-        <div className="self-stretch justify-start text-teal-900 text-3xl sm:text-4xl lg:text-6xl font-semibold capitalize leading-[32px] sm:leading-[48px] lg:leading-[64px]">By Transforming Financial Stress into Simplicity</div>
+        <div className="self-stretch justify-start text-brand text-2xl sm:text-3xl lg:text-5xl font-semibold capitalize leading-[28px] sm:leading-[40px] lg:leading-[56px]">By Transforming Financial Stress into Simplicity</div>
       </div>
-      <div className="w-full lg:w-96 justify-start text-slate-500 text-lg sm:text-xl font-normal leading-7 sm:leading-9">Our mission is to create a future where managing money is empowering, not overwhelming.</div>
+      <div className="w-full lg:w-96 justify-start text-slate-500 text-base sm:text-lg font-normal leading-6 sm:leading-8">Our mission is to create a future where managing money is empowering, not overwhelming.</div>
     </div>
 
     <div className="mt-8 lg:mt-12 h-[400px] lg:h-[600px] w-full bg-gray-200 rounded-lg">
@@ -219,10 +226,10 @@ export default function AboutUs() {
     <div className='w-full lg:w-1/2'>
         <div className="self-stretch inline-flex flex-col justify-center items-start gap-4 ">
           <div className="px-4 py-1 rounded-2xl outline outline-1 outline-offset-[-1px] outline-slate-200 inline-flex justify-center items-center gap-3">
-            <div className="justify-center text-slate-500 text-sm font-medium  leading-6">Company Culture</div>
+            <div className="justify-center text-slate-500 text-base sm:text-sm font-medium  leading-6">Company Culture</div>
           </div>
-          <div className="self-stretch justify-start text-teal-900 text-3xl sm:text-4xl lg:text-6xl font-semibold capitalize leading-[32px] sm:leading-[48px] lg:leading-[64px]">The Core Values That Continuously Drive Us</div>
-          <div className="self-stretch justify-start text-slate-500 text-lg sm:text-xl font-normal leading-7 sm:leading-9">More than lines of code, our foundation is a commitment to meaningful progress and purposeful innovation.</div>
+          <div className="self-stretch justify-start text-brand text-2xl sm:text-3xl lg:text-5xl font-semibold capitalize leading-[28px] sm:leading-[40px] lg:leading-[56px]">The Core Values That Continuously Drive Us</div>
+          <div className="self-stretch justify-start text-slate-500 text-base sm:text-lg font-normal leading-6 sm:leading-8">More than lines of code, our foundation is a commitment to meaningful progress and purposeful innovation.</div>
         </div>
 
         {/* <div className="self-stretch h-0  outline-offset-[-0.50px] outline-slate-500 my-14"></div> */}
@@ -231,13 +238,13 @@ export default function AboutUs() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 pt-6 border-t border-slate-200 mt-10">
             
           <div className="flex flex-col justify-start items-start gap-4">
-            <div className="w-10 h-10 bg-lime-200 rounded-full inline-flex justify-center items-center">
+            <div className="w-10 h-10 bg-blue-200 rounded-full inline-flex justify-center items-center">
               <div className="w-5 h-5 relative overflow-hidden">
-                <Image src="/icons/users.svg" alt="check" width={20} height={20} />
+                <Image src="/icons/users.svg" alt="check" width={20} height={20} className="text-brand" />
               </div>
             </div>
             <div className="flex flex-col justify-start items-start gap-3">
-              <div className="text-teal-900 text-xl font-semibold  capitalize leading-6">
+              <div className="text-brand text-xl font-semibold  capitalize leading-6">
                 Clarity First
               </div>
               <div className="text-slate-500 text-base font-normal  leading-6">
@@ -247,13 +254,13 @@ export default function AboutUs() {
           </div>
     
           <div className="flex flex-col justify-start items-start gap-4">
-           <div className="w-10 h-10 bg-lime-200 rounded-full inline-flex justify-center items-center">
+           <div className="w-10 h-10 bg-blue-200 rounded-full inline-flex justify-center items-center">
               <div className="w-5 h-5 relative overflow-hidden">
                 <Image src="/icons/Vector copy.svg" alt="check" width={20} height={20} />
               </div>
             </div>
             <div className="flex flex-col justify-start items-start gap-3">
-              <div className="text-teal-900 text-xl font-semibold  capitalize leading-6">
+              <div className="text-brand text-xl font-semibold  capitalize leading-6">
                 Clarity First
               </div>
               <div className="text-slate-500 text-base font-normal  leading-6">
@@ -263,13 +270,13 @@ export default function AboutUs() {
           </div>
     
           <div className="flex flex-col justify-start items-start gap-4">
-            <div className="w-10 h-10 bg-lime-200 rounded-full inline-flex justify-center items-center">
+            <div className="w-10 h-10 bg-blue-200 rounded-full inline-flex justify-center items-center">
               <div className="w-5 h-5 relative overflow-hidden">
                 <Image src="/icons/check.svg" alt="check" width={20} height={20} />
               </div>
             </div>
             <div className="flex flex-col justify-start items-start gap-3">
-              <div className="text-teal-900 text-xl font-semibold  capitalize leading-6">
+              <div className="text-brand text-xl font-semibold  capitalize leading-6">
                 Clarity First
               </div>
               <div className="text-slate-500 text-base font-normal  leading-6">
@@ -279,13 +286,13 @@ export default function AboutUs() {
           </div>
     
           <div className="flex flex-col justify-start items-start gap-4">
-            <div className="w-10 h-10 bg-lime-200 rounded-full inline-flex justify-center items-center">
+            <div className="w-10 h-10 bg-blue-200 rounded-full inline-flex justify-center items-center">
               <div className="w-5 h-5 relative overflow-hidden">
                 <Image src="/icons/server.svg" alt="check" width={20} height={20} />
               </div>
             </div>
             <div className="flex flex-col justify-start items-start gap-3">
-              <div className="text-teal-900 text-xl font-semibold  capitalize leading-6">
+              <div className="text-brand text-xl font-semibold  capitalize leading-6">
                 Clarity First
               </div>
               <div className="text-slate-500 text-base font-normal  leading-6">
@@ -296,13 +303,13 @@ export default function AboutUs() {
         </div>
     </div>
 
-    <div className="w-full py-4 sm:py-0 lg:w-1/2 min-h-[500px] lg:h-[700px] bg-lime-200 rounded-xl flex flex-col items-center gap-6 justify-center px-4">
+    <div className="w-full py-4 sm:py-0 lg:w-1/2 min-h-[500px] lg:h-[700px] bg-blue-200 rounded-xl flex flex-col items-center gap-6 justify-center px-4">
 
-    <Image src="/graphics/balance.jpg" alt="Collaborate" width={400} height={800} className='w-full max-w-[540px] rounded-xl' />
+    <Image src="/color/balance.png" alt="Collaborate" width={400} height={800} className='w-full max-w-[540px] rounded-xl' />
 
-    <div className='flex flex-col sm:flex-row justify-between gap-6 sm:gap-10 w-full'>
-        <Image src="/graphics/financeScore.jpg" alt="Collaborate" width={200} height={400} className='w-full max-w-[240px] rounded-xl' />
-        <Image src="/graphics/emergency.jpg" alt="Collaborate" width={200} height={400} className='w-full max-w-[240px] rounded-xl' />
+    <div className='flex flex-col sm:flex-row justify-between gap-6 sm:gap-8 w-full'>
+        <Image src="/color/finance.png" alt="Collaborate" width={200} height={400} className='w-full max-w-[240px] rounded-xl' />
+        <Image src="/color/emergency.png" alt="Collaborate" width={200} height={400} className='w-full max-w-[240px] rounded-xl' />
 
     </div>
     </div>
@@ -310,39 +317,39 @@ export default function AboutUs() {
 
 
 <div className="w-full flex justify-center items-center py-16 px-4 sm:px-6 lg:px-8">
-  <div className="w-full max-w-7xl bg-gradient-to-b from-lime-200/0 to-lime-200/30 rounded-[20px] p-8 md:p-16 flex flex-col lg:flex-row justify-center items-center gap-8 overflow-hidden">
+  <div className="w-full max-w-7xl bg-gradient-to-b from-lime-200/0 to-blue-200/30 rounded-[20px] p-8 md:p-16 flex flex-col lg:flex-row justify-center items-center gap-8 overflow-hidden">
 
     {/* Left Content */}
     <div className="flex-1 flex flex-col justify-center items-start gap-6">
 
       {/* Badge */}
       <div className="flex flex-col gap-4">
-        <div className="pl-2 pr-3 py-1.5 bg-lime-100 rounded-2xl inline-flex items-center gap-3">
+        <div className="pl-2 pr-3 py-1.5 bg-red-100 rounded-2xl inline-flex items-center gap-3">
           <div className="pl-1 pr-2 py-1 bg-white rounded-xl flex items-center gap-1">
             <div className="w-2 h-2 relative bg-lime-100 rounded flex items-center justify-between">
               <div className="w-1.5 h-1.5 bg-stone-100 rounded-full" />
-              <div className="w-1 h-1 absolute left-[2px] top-[2px] bg-teal-900 rounded-full" />
+              <div className="w-1 h-1 absolute left-[2px] top-[2px] bg-blue-900 rounded-full" />
             </div>
-            <div className="text-teal-900 text-xs font-medium leading-5">Nkirra</div>
+            <div className="text-brand text-xs sm:text-sm font-medium leading-5">Nkirra</div>
           </div>
-          <div className="text-teal-900 text-sm font-medium leading-6">Smarter Money Management</div>
+          <div className="text-brand text-base sm:text-sm font-medium leading-6">Smarter Money Management</div>
         </div>
       </div>
 
       {/* Heading */}
-      <h1 className="text-teal-900 font-semibold capitalize leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-full lg:max-w-xl">
+      <h1 className="text-brand font-semibold capitalize leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-full lg:max-w-xl">
         Ready to Build the Future of Finance With Us?
       </h1>
 
       {/* Subtext */}
-      <p className="text-teal-900 text-base sm:text-lg md:text-xl leading-7 md:leading-9 max-w-full lg:max-w-lg">
+      <p className="text-brand text-sm sm:text-base md:text-lg leading-6 md:leading-8 max-w-full lg:max-w-lg">
         Whether you’re a potential user, partner, or team member—let’s shape smarter money management together.
       </p>
 
       {/* Button */}
       <Button
         variant="default_bg"
-        className="mt-6 px-6 sm:px-10 py-3 sm:py-4 w-full sm:w-auto text-md bg-lime-200 text-black"
+        className="hidden sm:inline-flex items-center justify-center w-[130px] md:w-[150px] h-[40px] md:h-[44px] text-sm md:text-base bg-brand-primary rounded-xl"
       >
         Get Started
       </Button>
@@ -370,9 +377,9 @@ export default function AboutUs() {
     <div className="md:col-span-2 flex flex-col">
       <div className="flex items-center gap-2">
         <Image src="/logo.png" alt="Logo" width={40} height={70} />
-        <h3 className="text-lg font-semibold">Abirio</h3>
+        <h3 className="text-base sm:text-lg font-semibold">Abirio</h3>
       </div>
-      <p className="mt-4 text-gray-500 max-w-full sm:max-w-[320px]">
+      <p className="mt-4 text-gray-500 text-sm sm:text-base max-w-full sm:max-w-[320px]">
         From mood boards to payments, Abirio replaces scattered messages, spreadsheets,
         and last-minute chaos with one intelligent workflow.
       </p>
@@ -380,36 +387,36 @@ export default function AboutUs() {
 
     {/* Column 2 */}
     <div>
-      <h3 className="text-lg font-semibold mb-4">Support</h3>
+      <h3 className="text-base sm:text-lg font-semibold mb-4">Support</h3>
       <ul className="space-y-2">
-        <li><a href="#" className="hover:text-black">Help Center</a></li>
-        <li><a href="#" className="hover:text-black">Terms of Service</a></li>
-        <li><a href="#" className="hover:text-black">Privacy Policy</a></li>
+        <li className="text-sm sm:text-base"><a href="#" className="hover:text-black">Help Center</a></li>
+        <li className="text-sm sm:text-base"><a href="#" className="hover:text-black">Terms of Service</a></li>
+        <li className="text-sm sm:text-base"><a href="#" className="hover:text-black">Privacy Policy</a></li>
       </ul>
     </div>
 
     {/* Column 3 */}
     <div>
-      <h3 className="text-lg font-semibold mb-4">Contact</h3>
+      <h3 className="text-base sm:text-lg font-semibold mb-4">Contact</h3>
       <ul className="space-y-2">
-        <li>Email: info@example.com</li>
-        <li>Phone: +1 234 567 890</li>
-        <li>Location: Nairobi, Kenya</li>
+        <li className="text-sm sm:text-base">Email: info@example.com</li>
+        <li className="text-sm sm:text-base">Phone: +1 234 567 890</li>
+        <li className="text-sm sm:text-base">Location: Nairobi, Kenya</li>
       </ul>
     </div>
 
     {/* Column 4 */}
     <div>
-      <h3 className="text-lg font-semibold mb-4">Resources</h3>
+      <h3 className="text-base sm:text-lg font-semibold mb-4">Resources</h3>
       <ul className="space-y-2">
-        <li><a href="#" className="hover:text-black">Pricing</a></li>
-        <li><a href="#" className="hover:text-black">Blog</a></li>
-        <li><a href="#" className="hover:text-black">Documentation</a></li>
+        <li className="text-sm sm:text-base"><a href="#" className="hover:text-black">Pricing</a></li>
+        <li className="text-sm sm:text-base"><a href="#" className="hover:text-black">Blog</a></li>
+        <li className="text-sm sm:text-base"><a href="#" className="hover:text-black">Documentation</a></li>
       </ul>
     </div>
   </div>
 
-  <div className="mt-10 text-sm text-gray-500 text-center sm:text-left max-w-7xl mx-auto px-6 lg:px-8">
+  <div className="mt-10 text-xs sm:text-sm text-gray-500 text-center sm:text-left max-w-7xl mx-auto px-6 lg:px-8">
     © {new Date().getFullYear()} Your Company. All rights reserved.
   </div>
 </footer>

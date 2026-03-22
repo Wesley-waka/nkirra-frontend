@@ -75,23 +75,23 @@ export default function FAQPage() {
           {faqItems.map((item, index) => (
             <div
               key={item.id}
-              className={`w-full p-6 bg-green-100 rounded-2xl outline outline-1 outline-offset-[-1px] ${
-                openItem === item.id ? "outline-teal-900" : "outline-slate-200"
+              className={`w-full p-6 bg-blue-100 rounded-2xl outline outline-1 outline-offset-[-1px] ${
+                openItem === item.id ? "outline-blue-900" : "outline-slate-200"
               } flex flex-col gap-2 transition-all duration-300 cursor-pointer`}
               onClick={() => toggleItem(item.id)}
             >
               <div className="w-full flex justify-between items-start">
-                <div className="flex-1 text-teal-900 text-xl font-semibold leading-6">
+                <div className="flex-1 text-blue-900 text-xl font-semibold leading-6">
                   {item.question}
                 </div>
 
                 {/* Icon */}
                 <div className="w-6 h-6 relative">
                   {/* Horizontal bar */}
-                  <div className="w-4 h-0.5 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-teal-900" />
+                  <div className="w-4 h-0.5 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-blue-900" />
                   {/* Vertical bar (hidden when open) */}
                   <div
-                    className={`w-0.5 h-4 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-teal-900 transition-all duration-300 ${
+                    className={`w-0.5 h-4 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-blue-900 transition-all duration-300 ${
                       openItem === item.id ? "opacity-0 scale-y-0" : "opacity-100 scale-y-100"
                     }`}
                   />
