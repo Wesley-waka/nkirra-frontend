@@ -104,25 +104,25 @@ export default function Home() {
                   <span className="text-brand text-sm sm:text-xs font-medium leading-5">Nkirra</span>
                 </div>
                 <span className="text-brand text-sm sm:text-sm font-medium leading-6">
-                  Smarter Money Management
+                  Smarter Group Management
                 </span>
               </div>
 
               {/* Headline */}
               <h1 className="w-full max-w-4xl text-center text-brand text-4xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold capitalize leading-none mt-10">
-  Take Full Control of Your Finances with Nkirra
+Elevate Your Community Operating System With Nkirra
 </h1>
 
               {/* Subheadline */}
               <p className="w-full max-w-2xl text-center text-slate-500 text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
-                Smart, secure, and scalable finance management built for modern individuals and businesses.
+                Unified platform that powers how groups organizr,manage members,track finances, and stay alligned - all in one structured,transparent system
               </p>
 
               <Button
                 variant="default_bg"
                 className="w-[160px] md:w-[190px] h-[46px] md:h-[52px] text-base md:text-sm bg-brand-primary rounded-xl"
               >
-                Get Started Free
+                Request Demo
               </Button>
 
               {/* Hero Image */}
@@ -154,10 +154,10 @@ export default function Home() {
               <span className="text-slate-500 text-base sm:text-sm font-medium leading-6">Features</span>
             </div>
             <h2 className="w-full max-w-4xl text-brand text-3xl sm:text-2xl md:text-5xl lg:text-6xl font-semibold capitalize leading-none">
-              Smarter Features to Manage and Grow Your Money
+              Smarter Features to Manage and Streamline Your Community
             </h2>
             <p className="w-full max-w-2xl text-slate-500 text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
-              Everything you need in one platform to track, plan, and optimize your finances.
+              Everything you need in one platform to track, plan, and optimize your operations.
             </p>
           </div>
 
@@ -235,10 +235,10 @@ export default function Home() {
               <span className="text-slate-500 text-base sm:text-sm font-medium leading-6">Our Value</span>
             </div>
             <h2 className="w-full max-w-4xl text-brand text-3xl sm:text-2xl md:text-5xl lg:text-6xl font-semibold capitalize leading-none">
-              What Sets Nkirra Apart
+              How it Works
             </h2>
             <p className="w-full max-w-2xl text-slate-500 text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
-              We don't just help you manage money — we empower you with clarity, control, and confidence every step of the way.
+              Get Started in 3 simple steps Onboard quickly and experience the benefits of automation without hassle
             </p>
           </div>
 
@@ -249,7 +249,7 @@ export default function Home() {
                 iconBg: "bg-blue-200",
                 icon: "/icons/server.svg",
                 alt: "Server",
-                title: "Built for Scalability",
+                title: "Create Your Group",
                 body: "From freelancers to startups, manage every dollar as your finances grow.",
                 textColor: "text-slate-500",
               },
@@ -258,7 +258,7 @@ export default function Home() {
                 iconBg: "bg-white",
                 icon: "/icons/grid.svg",
                 alt: "Grid",
-                title: "Clarity First",
+                title: "Customize",
                 body: "Designed to simplify, not overwhelm — with a clean UI and actionable insights.",
                 textColor: "text-brand",
               },
@@ -267,7 +267,7 @@ export default function Home() {
                 iconBg: "bg-blue-200",
                 icon: "/icons/vector.svg",
                 alt: "Vector",
-                title: "Enterprise Security",
+                title: "Grow",
                 body: "Bank-level encryption and security protocols to protect your financial data 24/7.",
                 textColor: "text-slate-500",
               },
@@ -299,7 +299,7 @@ export default function Home() {
               Discover The Power of Real-Time Financial Insights
             </h2>
             <p className="w-full max-w-2xl text-slate-500 text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
-              Stay ahead of your financial goals with intelligent tools that track, analyze, and simplify your daily money decisions.
+              Stay in control of your group's finances with intelligent tools that track,manage and simplify every contribution and payout
             </p>
           </div>
 
@@ -475,11 +475,11 @@ export default function Home() {
     {[
       { src: "/intergration/cash-app.jpg", alt: "Cash App" },
       { src: "/intergration/excel.svg", alt: "Excel" },
-      { src: "/intergration/zoom.svg", alt: "Zoom" },
       { src: "/intergration/loom.svg", alt: "Loom" },
       { src: "/intergration/paypal.svg", alt: "PayPal" },
       { src: "/intergration/stripe.svg", alt: "Stripe" },
       { src: "/intergration/google.svg", alt: "Google" },
+      { src: "/logos/whatsapp.svg", alt: "WhatsApp" },
     ].map(({ src, alt }) => (
       <Image
         key={alt}
@@ -592,13 +592,13 @@ export default function Home() {
                     </div>
                     <span className="text-brand text-xs font-medium leading-5">Nkirra</span>
                   </div>
-                  <span className="text-brand text-sm font-medium leading-6">Smarter Money Management</span>
+                  <span className="text-brand text-sm font-medium leading-6">Smarter Group Management</span>
                 </div>
                 <h2 className="text-white text-3xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold capitalize leading-none">
                   Ready to Take Charge of Your Finances?
                 </h2>
                 <p className="text-white text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
-                  Join thousands of users managing smarter with Nkirra.
+                  Join thousands of users managing smarter with Nkirra55758.
                 </p>
               </div>
               <Button
