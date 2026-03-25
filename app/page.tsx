@@ -321,7 +321,7 @@ Elevate Your Community Operating System With Nkirra
                   Real-Time Financial Visibility
                 </div>
                 <div className="text-slate-500 text-lg sm:text-base md:text-base leading-6">
-                  Track contributions,payouts,balances and group activity instantly - eith a complete vie of your financial position
+                  Track contributions,payouts,balances and group activity instantly - either a complete vie of your financial position
                 </div>
               </div>
             </div>
