@@ -115,7 +115,7 @@ Elevate Your Community Operating System With Nkirra
 
               {/* Subheadline */}
               <p className="w-full max-w-2xl text-center text-slate-500 text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
-                Unified platform that powers how groups organizr,manage members,track finances, and stay alligned - all in one structured,transparent system
+                Unified platform that powers how groups organize,manage members,track finances, and stay alligned - all in one structured,transparent system
               </p>
 
               <Button
@@ -188,26 +188,26 @@ Elevate Your Community Operating System With Nkirra
                 {
                   icon: "/icons/Thunder.svg",
                   alt: "Thunder",
-                  title: "One-click transaction categorization and syncing",
-                  body: "Automatically organize your financial data in seconds. With just one click, your transactions are instantly synced.",
+                  title: "Group Operations and Administration",
+                  body: "Manage members,roles,tasks,and structure while keeping your group organized,alligned,and accountable as it grows",
                 },
                 {
                   icon: "/icons/clock.svg",
                   alt: "Clock",
-                  title: "Real-time analytics and insights",
-                  body: "Our advanced analytics give you a real-time view of your entire operation—sales, profit margins, and financial health at a glance.",
+                  title: "Financial Management and Infrastructure",
+                  body: "Track contributions,manage payouts and unlock advanced capabilities like payments,credit systems,lending,and investment pools.",
                 },
                 {
                   icon: "/icons/cloud.svg",
                   alt: "Cloud",
-                  title: "Secure cloud synchronization",
-                  body: "Your financial data is securely backed up and synchronized across all your devices with bank-level encryption.",
+                  title: "Governance & Transparency",
+                  body: "Record decisions,track approvals,and maintain full visibility across all group activities and financial actions",
                 },
                 {
                   icon: "/icons/money.svg",
                   alt: "Money",
-                  title: "Smart budget management",
-                  body: "Create and manage budgets intelligently with AI-powered recommendations and automatic spending categorization.",
+                  title: "Intelligence,Automation and Growth",
+                  body: "Leverage real-time insights,smart automations,and AI-driven recommendations to optimize how your group operates and scales",
                 },
               ].map(({ icon, alt, title, body }) => (
                 <div
@@ -247,28 +247,28 @@ Elevate Your Community Operating System With Nkirra
               {
                 bg: "bg-blue-100",
                 iconBg: "bg-blue-200",
-                icon: "/icons/server.svg",
+                icon: "/group.svg",
                 alt: "Server",
                 title: "Create Your Group",
-                body: "From freelancers to startups, manage every dollar as your finances grow.",
+                body: "Setup your group in minutes by adding members,defining roles and establing how your group operates",
                 textColor: "text-slate-500",
               },
               {
                 bg: "bg-blue-200",
                 iconBg: "bg-white",
-                icon: "/icons/grid.svg",
+                icon: "/settings.svg",
                 alt: "Grid",
-                title: "Customize",
-                body: "Designed to simplify, not overwhelm — with a clean UI and actionable insights.",
+                title: "Customize Your Experience",
+                body: "Tailor contributions,payouts,structure,and workflows to match your group's unique needs",
                 textColor: "text-brand",
               },
               {
                 bg: "bg-blue-100",
                 iconBg: "bg-blue-200",
-                icon: "/icons/vector.svg",
+                icon: "/grow.svg",
                 alt: "Vector",
-                title: "Grow",
-                body: "Bank-level encryption and security protocols to protect your financial data 24/7.",
+                title: "Grow With Confidence",
+                body: "Stay organized,gain visibility,and scale your group with clarity,control, and trust",
                 textColor: "text-slate-500",
               },
             ].map(({ bg, iconBg, icon, alt, title, body, textColor }) => (
@@ -277,7 +277,7 @@ Elevate Your Community Operating System With Nkirra
                 className={`${bg} rounded-[20px] px-6 md:px-8 py-8 md:py-10 flex flex-col items-center gap-6 text-center`}
               >
                 <div className={`${iconBg} p-6 md:p-7 rounded-full flex items-center justify-center`}>
-                  <Image src={icon} alt={alt} width={32} height={32} />
+                  <Image src={icon} alt={alt} width={42} height={42} />
                 </div>
                 <div className="flex flex-col gap-3">
                   <p className="text-brand text-xl sm:text-lg md:text-2xl font-semibold capitalize leading-8">{title}</p>
@@ -318,10 +318,10 @@ Elevate Your Community Operating System With Nkirra
               </div>
               <div className="flex flex-col gap-3">
                 <div className="text-stone-950 text-2xl sm:text-xl md:text-2xl font-semibold capitalize leading-8">
-                  Finance Score Tracker
+                  Real-Time Financial Visibility
                 </div>
                 <div className="text-slate-500 text-lg sm:text-base md:text-base leading-6">
-                  Stay informed and in control by effortlessly monitoring your investments in real-time, ensuring you&apos;re always aware of their performance and growth.
+                  Track contributions,payouts,balances and group activity instantly - eith a complete vie of your financial position
                 </div>
               </div>
             </div>
@@ -339,10 +339,10 @@ Elevate Your Community Operating System With Nkirra
               </div>
               <div className="flex flex-col gap-3">
                 <div className="text-stone-950 text-2xl sm:text-xl md:text-2xl font-semibold capitalize leading-8">
-                  Finance Score Tracker
+                  Smart Payouts & Transaction
                 </div>
                 <div className="text-slate-500 text-lg sm:text-base md:text-base leading-6">
-                  Stay informed and in control by effortlessly monitoring your investments in real-time, ensuring you&apos;re always aware of their performance and growth.
+                  Manage payouts,automate schedules, and maintain a clear structured record of every transaction
                 </div>
               </div>
             </div>
@@ -360,10 +360,10 @@ Elevate Your Community Operating System With Nkirra
               </div>
               <div className="flex flex-col gap-3">
                 <div className="text-stone-950 text-2xl sm:text-xl md:text-2xl font-semibold capitalize leading-8">
-                  Finance Score Tracker
+                  Automations & Payment Intelligence
                 </div>
                 <div className="text-slate-500 text-lg sm:text-base md:text-base leading-6">
-                  Stay informed and in control by effortlessly monitoring your investments in real-time, ensuring you&apos;re always aware of their performance and growth.
+                  Send reminders,trigger alerts,and leverage smart insights to keep contributions consistent and on track
                 </div>
               </div>
             </div>
@@ -381,10 +381,10 @@ Elevate Your Community Operating System With Nkirra
               </div>
               <div className="flex flex-col gap-3">
                 <div className="text-stone-950 text-2xl sm:text-xl md:text-2xl font-semibold capitalize leading-8">
-                  Finance Score Tracker
+                  Advanced Insights & Financial growth
                 </div>
                 <div className="text-slate-500 text-lg sm:text-base md:text-base leading-6">
-                  Stay informed and in control by effortlessly monitoring your investments in real-time, ensuring you&apos;re always aware of their performance and growth.
+                  Understand trends,predict risks,unlock credit potential, and expand into lending,payments,and investment capabilities
                 </div>
               </div>
             </div>
