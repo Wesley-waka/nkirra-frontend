@@ -7,10 +7,138 @@ import Carousel from "./assets/Carousel";
 import { useState } from "react";
 import FAQPage from "@/components/faq";
 import { useRouter } from "next/navigation";
+import { motion, useScroll, useTransform, useInView, Variants, Easing } from "framer-motion";
+import { useRef } from "react";
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const fadeInDown = {
+  hidden: { opacity: 0, y: -30 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -30 },
+  visible: { opacity: 1, x: 0 }
+};
+
+const fadeInRight = {
+  hidden: { opacity: 0, x: 30 },
+  visible: { opacity: 1, x: 0 }
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1 }
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
 export default function Home() {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Scroll refs for animations
+  const featuresRef = useRef(null);
+  const valuesRef = useRef(null);
+  const overviewRef = useRef(null);
+  
+  const featuresInView = useInView(featuresRef, { once: true, margin: "-100px" });
+  const valuesInView = useInView(valuesRef, { once: true, margin: "-100px" });
+  const overviewInView = useInView(overviewRef, { once: true, margin: "-100px" });
+
+  const cards = [
+  {
+    src: "/color/cashflow.png",
+    height: 500,
+    width: 450,
+    alt: "Cashflow",
+    title: "Real-Time Financial Visibility",
+    description:
+      "Track contributions, payouts, balances and group activity instantly - either a complete view of your financial position",
+  },
+  {
+    src: "/color/savings.png",
+    height: 500,
+    width: 450,
+    alt: "Savings",
+    title: "Smart Payouts & Transaction",
+    description:
+      "Manage payouts, automate schedules, and maintain a clear structured record of every transaction",
+  },
+  {
+    src: "/color/portfolio.png",
+    height: 350,
+    width: 350,
+    alt: "Portfolio",
+    title: "Automations & Payment Intelligence",
+    description:
+      "Send reminders, trigger alerts, and leverage smart insights to keep contributions consistent and on track",
+  },
+  {
+    src: "/color/statistics.png",
+    height: 240,
+    width: 240,
+    alt: "Statistics",
+    title: "Advanced Insights & Financial Growth",
+    description:
+      "Understand trends, predict risks, unlock credit potential, and expand into lending, payments, and investment capabilities",
+  },
+];
+ 
+// Variants for the outer card wrapper — slides up + fades in
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 48 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1] as const,
+      delay: i * 0.12,
+    },
+  }),
+};
+ 
+// Variants for the image box — subtle scale-up on entry
+const imageBoxVariants: Variants = {
+  hidden: { scale: 0.95, opacity: 0 },
+  visible: (i: number) => ({
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1] as const,
+      delay: i * 0.12 + 0.1,
+    },
+  }),
+};
+ 
+// Variants for the text block — slides up slightly after image
+const textVariants: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1] as const,
+      delay: i * 0.12 + 0.25,
+    },
+  }),
+};
+ 
 
   return (
     <>
@@ -20,7 +148,13 @@ export default function Home() {
         <div className="min-h-[600px] bg-gradient-to-b from-blue-200/0 to-[#A9BAE1]">
 
           {/* Navbar */}
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 my-6">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={fadeInDown}
+            transition={{ duration: 0.6 }}
+            className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 my-6"
+          >
             <div className="flex items-center justify-between w-full px-4 sm:px-6 py-2 bg-white border border-gray-200 rounded-2xl">
 
               <Image
@@ -33,12 +167,12 @@ export default function Home() {
 
               {/* Desktop nav links */}
               <nav className="hidden sm:flex gap-6 md:gap-10 items-center">
-                <div className="cursor-pointer bg-blue-100 px-4 py-1.5 rounded-lg text-sm md:text-base font-medium">
+                <div className=" bg-blue-100 px-4 py-1.5 rounded-lg text-sm md:text-base font-medium">
                   Home
                 </div>
                 <div
                   onClick={() => router.push("/about-us")}
-                  className="cursor-pointer text-sm md:text-base font-medium hover:text-blue-700 transition-colors"
+                  className=" text-sm md:text-base font-medium hover:text-blue-700 transition-colors"
                 >
                   About Us
                 </div>
@@ -48,6 +182,7 @@ export default function Home() {
               <Button
                 variant="default_bg"
                 className="hidden sm:inline-flex items-center justify-center w-[130px] md:w-[150px] h-[40px] md:h-[44px] text-sm md:text-base bg-brand-primary rounded-xl"
+                onClick={()=>router.push("/auth")}
               >
                 Get Started
               </Button>
@@ -68,7 +203,7 @@ export default function Home() {
             {isMobileMenuOpen && (
               <div className="sm:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-2xl shadow-xl border border-gray-200 p-4 z-50">
                 <div className="flex flex-col gap-3">
-                  <div className="cursor-pointer bg-blue-100 py-2 px-4 rounded-lg text-center font-medium text-sm">
+                  <div className=" bg-blue-100 py-2 px-4 rounded-lg text-center font-medium text-sm">
                     Home
                   </div>
                   <div
@@ -76,27 +211,41 @@ export default function Home() {
                       router.push("/about-us");
                       setIsMobileMenuOpen(false);
                     }}
-                    className="cursor-pointer py-2 text-center font-medium text-sm hover:bg-gray-50 rounded-lg transition-colors"
+                    className=" py-2 text-center font-medium text-sm hover:bg-gray-50 rounded-lg transition-colors"
                   >
                     About Us
                   </div>
                   <Button
                     variant="default_bg"
                     className="w-full h-[42px] text-sm bg-brand-primary rounded-xl"
+                    onClick={() => {
+                      router.push("/auth");
+                      setIsMobileMenuOpen(false);
+                    }}
                   >
                     Get Started
                   </Button>
                 </div>
               </div>
             )}
-          </div>
+          </motion.div>
 
           {/* Hero Content */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12"
+          >
             <div className="flex flex-col items-center gap-6">
 
               {/* Badge */}
-              <div className="pl-2 pr-4 py-2 bg-red-100 rounded-2xl inline-flex items-center gap-2 md:gap-3">
+              <motion.div
+                variants={fadeInUp}
+                transition={{ duration: 0.6 }}
+                className="pl-2 pr-4 py-2 bg-red-100 rounded-2xl inline-flex items-center gap-2 md:gap-3"
+              >
                 <div className="pl-1.5 pr-2 py-1 bg-white rounded-xl flex items-center gap-1">
                   <div className="relative w-2 h-2 bg-blue-100 rounded flex items-center justify-center">
                     <div className="absolute w-1 h-1 bg-red-900 rounded-full" />
@@ -106,27 +255,46 @@ export default function Home() {
                 <span className="text-brand text-sm sm:text-sm font-medium leading-6">
                   Smarter Group Management
                 </span>
-              </div>
+              </motion.div>
 
               {/* Headline */}
-              <h1 className="w-full max-w-4xl text-center text-brand text-4xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold capitalize leading-none mt-10">
-Elevate Your Community Operating System With Nkirra
-</h1>
+              <motion.h1
+                variants={fadeInUp}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="w-full max-w-4xl text-center text-brand text-4xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold capitalize leading-none mt-10"
+              >
+                Elevate Your Community Operating System With Nkirra
+              </motion.h1>
 
               {/* Subheadline */}
-              <p className="w-full max-w-2xl text-center text-slate-500 text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
-                Unified platform that powers how groups organize,manage members,track finances, and stay alligned - all in one structured,transparent system
-              </p>
-
-              <Button
-                variant="default_bg"
-                className="w-[160px] md:w-[190px] h-[46px] md:h-[52px] text-base md:text-sm bg-brand-primary rounded-xl"
+              <motion.p
+                variants={fadeInUp}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="w-full max-w-2xl text-center text-slate-500 text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9"
               >
-                Request Demo
-              </Button>
+                Unified platform that powers how groups organize,manage members,track finances, and stay alligned - all in one structured,transparent system
+              </motion.p>
+
+              <motion.div
+                variants={fadeInUp}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  variant="default_bg"
+                  className="w-[160px] md:w-[190px] h-[46px] md:h-[52px] text-base md:text-sm bg-brand-primary rounded-xl"
+                >
+                  Request Demo
+                </Button>
+              </motion.div>
 
               {/* Hero Image */}
-              <div className="w-full max-w-4xl  overflow-hidden rounded-xl mt-2">
+              <motion.div
+                variants={scaleIn}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="w-full max-w-4xl  overflow-hidden rounded-xl mt-2"
+              >
                 <Image
                   src="/color/dashboard.png"
                   alt="Hero Image"
@@ -135,9 +303,9 @@ Elevate Your Community Operating System With Nkirra
                   className="w-full h-full object-cover object-center"
                   priority
                 />
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* ── Logo / Carousel ──────────────────────────────────────── */}
@@ -146,26 +314,37 @@ Elevate Your Community Operating System With Nkirra
         </div>
 
         {/* ── Features section ─────────────────────────────────────── */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-8">
+        <motion.section 
+          ref={featuresRef}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-8"
+          initial="hidden"
+          animate={featuresInView ? "visible" : "hidden"}
+        >
 
           {/* Section header */}
-          <div className="flex flex-col items-center gap-4 text-center">
-            <div className="px-4 py-1 rounded-2xl outline outline-1 outline-slate-200 inline-flex items-center gap-3">
+          <motion.div 
+            variants={staggerContainer}
+            className="flex flex-col items-center gap-4 text-center"
+          >
+            <motion.div variants={fadeInUp} className="px-4 py-1 rounded-2xl outline outline-1 outline-slate-200 inline-flex items-center gap-3">
               <span className="text-slate-500 text-base sm:text-sm font-medium leading-6">Features</span>
-            </div>
-            <h2 className="w-full max-w-4xl text-brand text-3xl sm:text-2xl md:text-5xl lg:text-6xl font-semibold capitalize leading-none">
+            </motion.div>
+            <motion.h2 variants={fadeInUp} className="w-full max-w-4xl text-brand text-3xl sm:text-2xl md:text-5xl lg:text-6xl font-semibold capitalize leading-none">
               Smarter Features to Manage and Streamline Your Community
-            </h2>
-            <p className="w-full max-w-2xl text-slate-500 text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="w-full max-w-2xl text-slate-500 text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
               Everything you need in one platform to track, plan, and optimize your operations.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           {/* Feature grid */}
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 mt-10 md:mt-12">
+          <motion.div 
+            variants={staggerContainer}
+            className="flex flex-col lg:flex-row gap-6 lg:gap-8 mt-10 md:mt-12"
+          >
 
             {/* Illustration panel */}
-            <div className="w-full lg:w-[46%] bg-blue-100 rounded-2xl flex flex-col sm:flex-row lg:flex-col items-center justify-center gap-6 p-6 md:p-8 min-h-[300px] lg:min-h-[560px]">
+            <motion.div variants={fadeInLeft} className="w-full lg:w-[46%] bg-blue-100 rounded-2xl flex flex-col sm:flex-row lg:flex-col items-center justify-center gap-6 p-6 md:p-8 min-h-[300px] lg:min-h-[560px]">
               <Image
                 src="/color/card.png"
                 alt="Credit card"
@@ -180,10 +359,10 @@ Elevate Your Community Operating System With Nkirra
                 height={260}
                 className="object-contain w-full  max-w-[320px] sm:max-w-[48%] lg:max-w-[90%] rounded-xl"
               />
-            </div>
+            </motion.div>
 
             {/* Feature list */}
-            <div className="flex flex-col gap-4 md:gap-5 w-full lg:flex-1">
+            <motion.div variants={staggerContainer} className="flex flex-col gap-4 md:gap-5 w-full lg:flex-1">
               {[
                 {
                   icon: "/icons/Thunder.svg",
@@ -210,9 +389,15 @@ Elevate Your Community Operating System With Nkirra
                   body: "Leverage real-time insights,smart automations,and AI-driven recommendations to optimize how your group operates and scales",
                 },
               ].map(({ icon, alt, title, body }) => (
-                <div
+                <motion.div
                   key={title}
-                  className="p-4 md:p-5 bg-white rounded-2xl outline outline-1 outline-slate-200 backdrop-blur-lg flex items-start gap-4 md:gap-5"
+                  variants={fadeInRight}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                    transition: { duration: 0.2 }
+                  }}
+                  className="p-4 md:p-5 bg-white rounded-2xl outline outline-1 outline-slate-200 backdrop-blur-lg flex items-start gap-4 md:gap-5 "
                 >
                   <div className="shrink-0 p-3 bg-blue-200 rounded-full flex items-center justify-center">
                     <Image src={icon} alt={alt} width={24} height={24} />
@@ -221,28 +406,39 @@ Elevate Your Community Operating System With Nkirra
                     <p className="text-stone-950 text-lg sm:text-base md:text-lg font-semibold leading-7">{title}</p>
                     <p className="text-slate-500 text-base sm:text-sm md:text-base font-normal leading-6">{body}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
+            </motion.div>
+          </motion.div>
+        </motion.section>
 
         {/* ── Values section ───────────────────────────────────────── */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        <motion.section 
+          ref={valuesRef}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20"
+          initial="hidden"
+          animate={valuesInView ? "visible" : "hidden"}
+        >
 
-          <div className="flex flex-col items-center gap-4 text-center">
-            <div className="px-4 py-1 rounded-2xl outline outline-1 outline-slate-200 inline-flex items-center gap-3">
+          <motion.div 
+            variants={staggerContainer}
+            className="flex flex-col items-center gap-4 text-center"
+          >
+            <motion.div variants={fadeInUp} className="px-4 py-1 rounded-2xl outline outline-1 outline-slate-200 inline-flex items-center gap-3">
               <span className="text-slate-500 text-base sm:text-sm font-medium leading-6">Our Value</span>
-            </div>
-            <h2 className="w-full max-w-4xl text-brand text-3xl sm:text-2xl md:text-5xl lg:text-6xl font-semibold capitalize leading-none">
+            </motion.div>
+            <motion.h2 variants={fadeInUp} className="w-full max-w-4xl text-brand text-3xl sm:text-2xl md:text-5xl lg:text-6xl font-semibold capitalize leading-none">
               How it Works
-            </h2>
-            <p className="w-full max-w-2xl text-slate-500 text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="w-full max-w-2xl text-slate-500 text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
               Get Started in 3 simple steps Onboard quickly and experience the benefits of automation without hassle
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6 mt-8 md:mt-10">
+          <motion.div 
+            variants={staggerContainer}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6 mt-8 md:mt-10"
+          >
             {[
               {
                 bg: "bg-blue-100",
@@ -272,9 +468,15 @@ Elevate Your Community Operating System With Nkirra
                 textColor: "text-slate-500",
               },
             ].map(({ bg, iconBg, icon, alt, title, body, textColor }) => (
-              <div
+              <motion.div
                 key={title}
-                className={`${bg} rounded-[20px] px-6 md:px-8 py-8 md:py-10 flex flex-col items-center gap-6 text-center`}
+                variants={scaleIn}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -5,
+                  transition: { duration: 0.2 }
+                }}
+                className={`${bg} rounded-[20px] px-6 md:px-8 py-8 md:py-10 flex flex-col items-center gap-6 text-center `}
               >
                 <div className={`${iconBg} p-6 md:p-7 rounded-full flex items-center justify-center`}>
                   <Image src={icon} alt={alt} width={42} height={42} />
@@ -283,117 +485,91 @@ Elevate Your Community Operating System With Nkirra
                   <p className="text-brand text-xl sm:text-lg md:text-2xl font-semibold capitalize leading-8">{title}</p>
                   <p className={`${textColor} text-base sm:text-sm md:text-base leading-6 md:leading-7`}>{body}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* ── Overview section ─────────────────────────────────────── */}
-        <div className="flex flex-col justify-center max-w-7xl mx-auto max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        <motion.div 
+          ref={overviewRef}
+          className="flex flex-col justify-center max-w-7xl mx-auto max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20"
+          initial="hidden"
+          animate={overviewInView ? "visible" : "hidden"}
+        >
 
-           <div className="flex flex-col items-center gap-4 text-center">
-            <div className="px-4 py-1 rounded-2xl outline outline-1 outline-slate-200 inline-flex items-center gap-3">
+           <motion.div 
+            variants={staggerContainer}
+            className="flex flex-col items-center gap-4 text-center"
+           >
+            <motion.div variants={fadeInUp} className="px-4 py-1 rounded-2xl outline outline-1 outline-slate-200 inline-flex items-center gap-3">
               <span className="text-slate-500 text-base sm:text-sm font-medium leading-6">Overview</span>
-            </div>
-            <h2 className="w-full max-w-4xl text-brand text-3xl sm:text-2xl md:text-5xl lg:text-6xl font-semibold capitalize leading-none">
+            </motion.div>
+            <motion.h2 variants={fadeInUp} className="w-full max-w-4xl text-brand text-3xl sm:text-2xl md:text-5xl lg:text-6xl font-semibold capitalize leading-none">
               Discover The Power of Real-Time Financial Insights
-            </h2>
-            <p className="w-full max-w-2xl text-slate-500 text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="w-full max-w-2xl text-slate-500 text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
               Stay in control of your group's finances with intelligent tools that track,manage and simplify every contribution and payout
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* Item 1 */}
-            <div className="flex flex-col gap-6">
-              {/* <div className="h-96 p-8 bg-stone-100 rounded-3xl" /> */}
-              <div className="h-96 p-8 bg-blue-100 rounded-3xl flex justify-center items-center rounded-md">
-                <Image
-                src='/color/cashflow.png'
-                height={500}
-                width={450}
-                alt='Cashflow'
-                className='rounded-md'
-                />
-              </div>
-              <div className="flex flex-col gap-3">
-                <div className="text-stone-950 text-2xl sm:text-xl md:text-2xl font-semibold capitalize leading-8">
-                  Real-Time Financial Visibility
-                </div>
-                <div className="text-slate-500 text-lg sm:text-base md:text-base leading-6">
-                  Track contributions,payouts,balances and group activity instantly - either a complete vie of your financial position
-                </div>
-              </div>
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      {cards.map((card, i) => (
+        <motion.div
+          key={card.title}
+          className="flex flex-col gap-6"
+          custom={i}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={cardVariants}
+        >
+          {/* Image box */}
+          <motion.div
+            className="h-96 p-8 bg-blue-100 rounded-3xl flex justify-center items-center"
+            custom={i}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={imageBoxVariants}
+            whileHover={{
+              scale: 1.02,
+              transition: { duration: 0.3, ease: "easeOut" },
+            }}
+          >
+            <Image
+              src={card.src}
+              height={card.height}
+              width={card.width}
+              alt={card.alt}
+              className="rounded-md"
+            />
+          </motion.div>
+ 
+          {/* Text block */}
+          <motion.div
+            className="flex flex-col gap-3"
+            custom={i}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={textVariants}
+          >
+            <div className="text-stone-950 text-2xl sm:text-xl md:text-2xl font-semibold capitalize leading-8">
+              {card.title}
             </div>
-
-            {/* Item 2 */}
-            <div className="flex flex-col gap-6">
-              <div className="h-96 p-8 bg-blue-100 rounded-3xl flex justify-center items-center rounded-md">
-                <Image
-                src='/color/savings.png'
-                height={500}
-                width={450}
-                alt='Cashflow'
-                className='rounded-md'
-                />
-              </div>
-              <div className="flex flex-col gap-3">
-                <div className="text-stone-950 text-2xl sm:text-xl md:text-2xl font-semibold capitalize leading-8">
-                  Smart Payouts & Transaction
-                </div>
-                <div className="text-slate-500 text-lg sm:text-base md:text-base leading-6">
-                  Manage payouts,automate schedules, and maintain a clear structured record of every transaction
-                </div>
-              </div>
+            <div className="text-slate-500 text-lg sm:text-base md:text-base leading-6">
+              {card.description}
             </div>
-
-            {/* Item 3 */}
-            <div className="flex flex-col gap-6">
-              <div className="h-96 p-8 bg-blue-100 rounded-3xl flex justify-center items-center rounded-md">
-                <Image
-                src='/color/portfolio.png'
-                height={350}
-                width={350}
-                alt='Cashflow'
-                className='rounded-md'
-                />
-              </div>
-              <div className="flex flex-col gap-3">
-                <div className="text-stone-950 text-2xl sm:text-xl md:text-2xl font-semibold capitalize leading-8">
-                  Automations & Payment Intelligence
-                </div>
-                <div className="text-slate-500 text-lg sm:text-base md:text-base leading-6">
-                  Send reminders,trigger alerts,and leverage smart insights to keep contributions consistent and on track
-                </div>
-              </div>
-            </div>
-
-            {/* Item 4 */}
-            <div className="flex flex-col gap-6">
-              <div className="h-96 p-8 bg-blue-100 rounded-3xl flex justify-center items-center rounded-md">
-                <Image
-                src='/color/statistics.png'
-                height={240}
-                width={240}
-                alt='Statistics'
-                className='rounded-md'
-                />
-              </div>
-              <div className="flex flex-col gap-3">
-                <div className="text-stone-950 text-2xl sm:text-xl md:text-2xl font-semibold capitalize leading-8">
-                  Advanced Insights & Financial growth
-                </div>
-                <div className="text-slate-500 text-lg sm:text-base md:text-base leading-6">
-                  Understand trends,predict risks,unlock credit potential, and expand into lending,payments,and investment capabilities
-                </div>
-              </div>
-            </div>
-          </div>
+          </motion.div>
+        </motion.div>
+      ))}
+    </div>
 
 
 
 
-        </div>
+        </motion.div>
 
         {/* ── Numbers section ──────────────────────────────────────── */}
         <div className="flex items-center justify-center max-w-7xl mx-auto py-12 md:py-20 lg:py-28 px-4">
