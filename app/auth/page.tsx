@@ -11,7 +11,6 @@ import OrDivider from '@/components/or-divider'
 import Router from 'next/router'
 import Link from 'next/link'
 import Stepper from '@/components/stepper'
-import UserTypeSelector from '@/components/user-role'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function page() {
