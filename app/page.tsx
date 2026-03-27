@@ -9,6 +9,7 @@ import FAQPage from "@/components/faq";
 import { useRouter } from "next/navigation";
 import { motion, useScroll, useTransform, useInView, Variants, Easing } from "framer-motion";
 import { useRef } from "react";
+import DownloadButton from "@/components/DownloadButton";
 
 // Animation variants
 const fadeInUp = {
@@ -172,7 +173,7 @@ const textVariants: Variants = {
                 </div>
                 <div
                   onClick={() => router.push("/about-us")}
-                  className=" text-sm md:text-base font-medium hover:text-blue-700 transition-colors"
+                  className=" text-sm md:text-base font-medium hover:text-blue-700 transition-colors cursor-pointer"
                 >
                   About Us
                 </div>
@@ -295,14 +296,18 @@ const textVariants: Variants = {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="w-full max-w-4xl  overflow-hidden rounded-xl mt-2"
               >
-                <Image
-                  src="/color/dashboard.png"
-                  alt="Hero Image"
-                  width={1000}
-                  height={500}
-                  className="w-full h-full object-cover object-center"
-                  priority
-                />
+                <div className="p-[10px] rounded-2xl bg-gradient-to-br from-white/40 via-white/10 to-white/5 backdrop-blur-xl shadow-2xl">
+  <div className="rounded-xl overflow-hidden">
+    <Image
+      src="/color/dashboard.png"
+      alt="Hero Image"
+      width={1000}
+      height={500}
+      className="w-full h-full object-cover object-center"
+      priority
+    />
+  </div>
+</div>
               </motion.div>
             </div>
           </motion.div>
@@ -651,7 +656,7 @@ const textVariants: Variants = {
     {[
       { src: "/intergration/cash-app.jpg", alt: "Cash App" },
       { src: "/intergration/excel.svg", alt: "Excel" },
-      { src: "/intergration/loom.svg", alt: "Loom" },
+      { src: "/pdf.svg", alt: "PDF" },
       { src: "/intergration/paypal.svg", alt: "PayPal" },
       { src: "/intergration/stripe.svg", alt: "Stripe" },
       { src: "/intergration/google.svg", alt: "Google" },
@@ -774,7 +779,7 @@ const textVariants: Variants = {
                   Ready to Take Charge of Your Finances?
                 </h2>
                 <p className="text-white text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
-                  Join thousands of users managing smarter with Nkirra55758.
+                  Join thousands of users managing smarter with Nkirra.
                 </p>
               </div>
               <Button
@@ -800,61 +805,73 @@ const textVariants: Variants = {
 
         {/* ── Footer ───────────────────────────────────────────────── */}
         <footer className="border-t-2 border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 md:gap-10">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 md:gap-10">
+    {/* Brand */}
+    <div className="md:col-span-2 flex flex-col gap-4">
+      <div className="flex items-center gap-2">
+        <Image src="/logo1.png" alt="Logo" width={40} height={40} className="w-10 h-10" />
+        <Image src="/logo.png" alt="Logo" width={60} height={60} className="w-14 h-14" />
+      </div>
+      <p className="text-gray-500 text-base sm:text-sm md:text-base leading-6 max-w-xs">
+        From mood boards to payments, Nkirra replaces scattered messages, spreadsheets, and last-minute chaos with one intelligent workflow.
+      </p>
 
-            {/* Brand */}
-            <div className="md:col-span-2 flex flex-col gap-4">
-              <div className="flex items-center gap-2">
-                <Image src="/logo.png" alt="Logo" width={40} height={40} className="w-10 h-10" />
-                <h3 className="text-lg sm:text-base md:text-lg font-semibold">Nkirra</h3>
-              </div>
-              <p className="text-gray-500 text-base sm:text-sm md:text-base leading-6 max-w-xs">
-                From mood boards to payments, Nkirra replaces scattered messages, spreadsheets,
-                and last-minute chaos with one intelligent workflow.
-              </p>
-            </div>
+      {/* Download Buttons */}
+      <div className="flex flex-col sm:flex-row gap-3 mt-1">
+        <DownloadButton
+  store="appstore" 
+  onClick={() => console.log('App Store clicked')} 
+/>
 
-            {/* Support */}
-            <div className="flex flex-col gap-4">
-              <h3 className="text-lg sm:text-base md:text-lg font-semibold">Support</h3>
-              <ul className="flex flex-col gap-2 text-gray-500">
-                {["Help Center", "Terms of Service", "Privacy Policy"].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="hover:text-black text-base sm:text-sm md:text-base transition-colors">{item}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+<DownloadButton 
+  store="playstore" 
+    onClick={() => console.log('App Store clicked')} 
 
-            {/* Contact */}
-            <div className="flex flex-col gap-4">
-              <h3 className="text-lg sm:text-base md:text-lg font-semibold">Contact</h3>
-              <ul className="flex flex-col gap-2 text-gray-500 text-base sm:text-sm md:text-base">
-                <li>Email: info@example.com</li>
-                <li>Phone: +1 234 567 890</li>
-                <li>Location: Nairobi, Kenya</li>
-              </ul>
-            </div>
+/>
+      </div>
+    </div>
 
-            {/* Resources */}
-            <div className="flex flex-col gap-4">
-              <h3 className="text-lg sm:text-base md:text-lg font-semibold">Resources</h3>
-              <ul className="flex flex-col gap-2 text-gray-500">
-                {["Pricing", "Blog", "Documentation"].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="hover:text-black text-base sm:text-sm md:text-base transition-colors">{item}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+    {/* Support */}
+    <div className="flex flex-col gap-4">
+      <h3 className="text-lg sm:text-base md:text-lg font-semibold">Support</h3>
+      <ul className="flex flex-col gap-2 text-gray-500">
+        {["Help Center", "Terms of Service", "Privacy Policy"].map((item) => (
+          <li key={item}>
+            <a href="#" className="hover:text-black text-base sm:text-sm md:text-base transition-colors">{item}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
 
-          <div className="border-t border-gray-100 py-5 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <p className="text-sm sm:text-xs md:text-sm text-gray-500 text-center sm:text-left">
-              © {new Date().getFullYear()} Nkirra. All rights reserved.
-            </p>
-          </div>
-        </footer>
+    {/* Contact */}
+    <div className="flex flex-col gap-4">
+      <h3 className="text-lg sm:text-base md:text-lg font-semibold">Contact</h3>
+      <ul className="flex flex-col gap-2 text-gray-500 text-base sm:text-sm md:text-base">
+        <li>Email: info@example.com</li>
+        <li>Phone: +1 234 567 890</li>
+        <li>Location: Nairobi, Kenya</li>
+      </ul>
+    </div>
+
+    {/* Resources */}
+    <div className="flex flex-col gap-4">
+      <h3 className="text-lg sm:text-base md:text-lg font-semibold">Resources</h3>
+      <ul className="flex flex-col gap-2 text-gray-500">
+        {["Pricing", "Blog", "Documentation"].map((item) => (
+          <li key={item}>
+            <a href="#" className="hover:text-black text-base sm:text-sm md:text-base transition-colors">{item}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div className="border-t border-gray-100 py-5 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <p className="text-sm sm:text-xs md:text-sm text-gray-500 text-center sm:text-left">
+      © {new Date().getFullYear()} Nkirra. All rights reserved.
+    </p>
+  </div>
+</footer>
 
       </div>
     </>

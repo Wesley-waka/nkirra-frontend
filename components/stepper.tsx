@@ -4,6 +4,7 @@ import { groupSignUp } from "./groupSignUp";
 import { Button } from "./ui/button";
 import Lottie from "lottie-react";
 import animationData from "../public/animations/sucess.json";
+import { useRouter } from "next/navigation";
 
 function StepOne() {
   return <h3>First content</h3>;
@@ -21,6 +22,7 @@ interface StepThreeProps {
 
 function StepTwo({ next,finish, isActive }: StepTwoProps) {
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, index: number): void => {
     const value = e.target.value;
@@ -78,6 +80,8 @@ function StepTwo({ next,finish, isActive }: StepTwoProps) {
 function StepThree({ isActive }: StepThreeProps) {
   const [countdown, setCountdown] = useState(5);
   const [dots, setDots] = useState('');
+  const router = useRouter()
+
 
   useEffect(() => {
     if (!isActive) {
@@ -94,8 +98,10 @@ function StepThree({ isActive }: StepThreeProps) {
       countdownInterval = setInterval(() => {
         setCountdown((prev) => {
           if (prev <= 1) {
+            router.push('/dashboard');
             return 0;
           }
+          // router.push('/dashboard');
           return prev - 1;
         });
       }, 1000);
@@ -105,6 +111,7 @@ function StepThree({ isActive }: StepThreeProps) {
           if (prev.length >= 3) return '';
           return prev + '.';
         });
+
       }, 500);
     }
 

@@ -174,7 +174,7 @@ export default function page() {
             />
           </Link>
           <div className='flex flex-col gap-2'>
-            <h1 className='text-brand text-6xl'>
+            <h1 className='text-brand text-6xl font-manrope'>
               Log in
             </h1>
             <h1>
@@ -329,7 +329,7 @@ export default function page() {
             />
           </div>
           <div className='flex flex-col gap-2'>
-            <h1 className='text-brand text-6xl'>
+            <h1 className='text-brand text-6xl font-manrope'>
               Sign Up
             </h1>
             <h1>

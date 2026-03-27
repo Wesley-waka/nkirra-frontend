@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   description: "Finance for everyone.",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
