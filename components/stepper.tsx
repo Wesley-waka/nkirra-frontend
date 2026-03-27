@@ -54,7 +54,9 @@ function StepTwo({ next,finish, isActive }: StepTwoProps) {
           {[0, 1, 2, 3].map((index) => (
             <input
               key={index}
-              ref={(el) => (inputRefs.current[index] = el)}
+              ref={(el) => {
+                inputRefs.current[index] = el;
+              }}
               type="text"
               maxLength={1}
               className="w-14 h-14 text-center text-lg font-semibold bg-background border-2 border-input rounded-lg text-foreground placeholder:text-muted-foreground focus:border-brand focus:ring-2 focus:ring-brand/20 transition-all duration-200 hover:border-brand/50 disabled:opacity-50 disabled:pointer-events-none"
