@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"
 import OrDivider from '@/components/or-divider'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 import Link from 'next/link'
 import Stepper from '@/components/stepper'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -17,6 +17,8 @@ export default function page() {
   const [login,setLogin] = useState<boolean>(true);
   const [user,setUser] = useState<'admin' | 'member' | null>(null);
   const [userType,setUserType] = useState<'admin' | 'member' | null>(null);
+  const router = useRouter()
+
 
   // Animation variants
   const containerVariants = {
@@ -83,6 +85,7 @@ export default function page() {
       }
     }
   };
+
 
   return (
 <div className="flex flex-col lg:flex-row w-full h-screen">
@@ -206,7 +209,7 @@ export default function page() {
 
         <div className='flex flex-col gap-8'>
 
-           <Button className="w-full h-12 rounded-2xl bg-[#a9012b]" variant="default">Create Account</Button> 
+           <Button className="w-full h-12 rounded-2xl bg-[#a9012b]" variant="default" onClick={()=>router.push('/dashboard')}>Create Account</Button> 
 
            <Field orientation="horizontal">
             <Checkbox id="terms" />
