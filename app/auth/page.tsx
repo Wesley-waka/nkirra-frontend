@@ -257,58 +257,84 @@ export default function page() {
 }
 
 {!user && !login ?(
-  <div className=' w-full '>
+  <div className="w-full px-4 sm:px-8 md:px-16">
 
-     <div className='flex flex-col justify-between h-[200px] '>
-          <div className="" onClick={()=>setLogin(true)}>
-            <Image
-              src='/icons/left.svg'
-              alt='arrow-left'
-              height={60}
-              width={60}
-              className='text-brand'
-            />
-          </div>
-          {/* <div className='flex flex-col gap-2'>
-            <h1 className='text-brand text-6xl'>
-              Log in
-            </h1>
-            <h1>
-              Don't have an account? <span className='text-brand underline font-bold'>Create an account</span>
-            </h1>
-          </div> */}
-
-           <div>
-      <h1 className='text-brand text-4xl text-center font-normal'>Select your Role</h1>
-      <h1 className='text-center text-gray-600'>Choose whether you want to join a group or create your own</h1>
-    </div>
-        </div>
-
-  <div className='h-full justify-between flex items-center flex-col sm:px-18 mt-10'>
-   
-
-    <div className='flex w-full justify-between gap-8 items-center'>
-      <div className={`${userType === 'admin' ? 'border-1 border-brand' : ''}  w-1/2 h-[250px] rounded-4xl  items-center justify-around flex flex-col gap-8 shadow-sm border-gray-500`} onClick={()=>setUserType('admin')}>
-        <Image src='/animations/admin.png' alt='' width={200} height={200}/>
-
-        <div>Group Admin</div>
-        
-      </div>
-
-      <div className={`${userType === 'member' ? 'border-1 border-brand' : ''} w-1/2 h-[250px] rounded-4xl  items-center justify-around flex flex-col gap-8  border-gray-500 shadow-sm`} onClick={()=>setUserType('member')}>
-        <Image src='/animations/member.png' alt='' width={200} height={200}/>
-
-        <div>Group Member</div>
-        
-      </div>
-    </div>
-
-    <Button className="w-full h-12 rounded-2xl bg-[#a9012b]" variant="default" onClick={()=>setUser(userType)}>Continue</Button> 
-
+  {/* Header */}
+  <div className="flex flex-col justify-between min-h-[150px] sm:min-h-[200px]">
     
+    <div onClick={() => setLogin(true)} className="cursor-pointer">
+      <Image
+        src="/icons/left.svg"
+        alt="arrow-left"
+        height={40}
+        width={40}
+        className="text-brand sm:h-[50px] sm:w-[50px]"
+      />
+    </div>
+
+    <div className="mt-4 sm:mt-0">
+      <h1 className="text-brand text-2xl sm:text-3xl md:text-4xl text-center font-normal">
+        Select your Role
+      </h1>
+      <p className="text-center text-gray-600 text-sm sm:text-base mt-2">
+        Choose whether you want to join a group or create your own
+      </p>
+    </div>
+  </div>
+
+  {/* Content */}
+  <div className="flex flex-col justify-between items-center mt-10 gap-8">
+
+    {/* Cards */}
+    <div className="flex flex-col sm:flex-row w-full gap-6 sm:gap-8">
+      
+      {/* Admin */}
+      <div
+        className={`${
+          userType === "admin" ? "border border-brand" : "border border-gray-300"
+        } w-full sm:w-1/2 min-h-[200px] rounded-3xl flex flex-col items-center justify-center gap-4 shadow-sm cursor-pointer p-4`}
+        onClick={() => setUserType("admin")}
+      >
+        <Image
+          src="/animations/admin.png"
+          alt="admin"
+          width={150}
+          height={150}
+          className="w-24 sm:w-32 md:w-40 h-auto"
+        />
+        <div className="text-sm sm:text-base">Group Admin</div>
+      </div>
+
+      {/* Member */}
+      <div
+        className={`${
+          userType === "member" ? "border border-brand" : "border border-gray-300"
+        } w-full sm:w-1/2 min-h-[200px] rounded-3xl flex flex-col items-center justify-center gap-4 shadow-sm cursor-pointer p-4`}
+        onClick={() => setUserType("member")}
+      >
+        <Image
+          src="/animations/member.png"
+          alt="member"
+          width={150}
+          height={150}
+          className="w-24 sm:w-32 md:w-40 h-auto"
+        />
+        <div className="text-sm sm:text-base">Group Member</div>
+      </div>
+
+    </div>
+
+    {/* Button */}
+    <Button
+      className="w-full h-12 rounded-2xl bg-[#a9012b] mt-4"
+      variant="default"
+      onClick={() => setUser(userType)}
+    >
+      Continue
+    </Button>
 
   </div>
-  </div>
+</div>
 ) : login ? '':(<div className='h-full w-full '>
   
   {/*
