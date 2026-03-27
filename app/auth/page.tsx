@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"
 import OrDivider from '@/components/or-divider'
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation';
 import Link from 'next/link'
 import Stepper from '@/components/stepper'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -180,7 +180,7 @@ export default function page() {
               Log in
             </h1>
             <h1>
-              Don't have an account? <span className='text-brand underline font-bold' onClick={()=> {
+              Don't have an account? <span className='text-brand underline font-bold cursor-pointer' onClick={()=> {
                 setLogin(false);
               }}> Create an account</span>
             </h1>
