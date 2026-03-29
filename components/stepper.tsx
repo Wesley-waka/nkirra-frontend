@@ -199,14 +199,14 @@ export default function Stepper({ user, setLogin, setUser }: StepperProps) {
               {/* Step bubble + label */}
               <li className="flex flex-col items-center shrink-0">
                 <div
-                  className={`size-8 flex items-center justify-center rounded-full text-sm font-semibold transition-all
+                  className={`w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center rounded-full text-xs sm:text-sm font-semibold transition-all
                     ${isCompleted ? "bg-teal-500 text-white" : "bg-gray-200 text-gray-700"}
                     ${isActive ? "ring-2 ring-blue-500 bg-blue-500 text-white scale-110" : ""}`}
                 >
                   {isCompleted ? "✓" : step.id}
                 </div>
                 <span
-                  className={`mt-1 text-sm font-medium transition-colors whitespace-nowrap
+                  className={`mt-1 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap
                     ${isActive ? "text-blue-600" : "text-gray-600"}`}
                 >
                   {step.label}
@@ -217,7 +217,7 @@ export default function Stepper({ user, setLogin, setUser }: StepperProps) {
               {index !== steps.length - 1 && (
                 <li
                   key={`connector-${step.id}`}
-                  className={`flex-1 h-px mx-2 mb-5 transition-colors
+                  className={`flex-1 h-px mx-1 sm:mx-2 mb-5 transition-colors
                     ${isCompleted ? "bg-teal-500" : "bg-gray-300"}`}
                 />
               )}

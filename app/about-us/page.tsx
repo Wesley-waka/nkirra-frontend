@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import LogoCarousel from "../assets/Carousel";
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import DownloadButton from "@/components/DownloadButton";
 
 export default function AboutUs() {
     const router = useRouter();
@@ -41,8 +40,6 @@ export default function AboutUs() {
                      <Button
                        variant="default_bg"
                        className="hidden sm:inline-flex items-center justify-center w-[130px] md:w-[150px] h-[40px] md:h-[44px] text-sm md:text-base bg-brand-primary rounded-xl"
-        onClick={() => router.push("/auth")}
-
                      >
                        Get Started
                      </Button>
@@ -78,8 +75,6 @@ export default function AboutUs() {
                          <Button
                            variant="default_bg"
                            className="w-full h-[42px] text-base bg-brand-primary rounded-xl"
-        onClick={() => router.push("/auth")}
-
                          >
                            Get Started
                          </Button>
@@ -188,8 +183,6 @@ export default function AboutUs() {
                        <Button
                        variant="default_bg"
                        className="hidden sm:inline-flex items-center justify-center w-[130px] md:w-[150px] h-[40px] md:h-[44px] text-sm md:text-base bg-brand-primary rounded-xl"
-        onClick={() => router.push("/auth")}
-
                      >
                        Get Started
                      </Button>
@@ -357,7 +350,6 @@ export default function AboutUs() {
       <Button
         variant="default_bg"
         className="hidden sm:inline-flex items-center justify-center w-[130px] md:w-[150px] h-[40px] md:h-[44px] text-sm md:text-base bg-brand-primary rounded-xl"
-        onClick={() => router.push("/auth")}
       >
         Get Started
       </Button>
@@ -379,72 +371,53 @@ export default function AboutUs() {
 
 
 <div>
-           <footer className="border-t-2 border-gray-200">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 md:gap-10">
-    {/* Brand */}
-    <div className="md:col-span-2 flex flex-col gap-4">
+          <footer className="w-full text-black py-10 border-t-2 border-gray-200">
+  <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10">
+    {/* Column 1 (Wider) */}
+    <div className="md:col-span-2 flex flex-col">
       <div className="flex items-center gap-2">
-        <Image src="/logo1.png" alt="Logo" width={40} height={40} className="w-10 h-10" />
-        <Image src="/logo.png" alt="Logo" width={60} height={60} className="w-14 h-14" />
+        <Image src="/logo.png" alt="Logo" width={40} height={70} />
+        <h3 className="text-base sm:text-lg font-semibold">Abirio</h3>
       </div>
-      <p className="text-gray-500 text-base sm:text-sm md:text-base leading-6 max-w-xs">
-        From mood boards to payments, Nkirra replaces scattered messages, spreadsheets, and last-minute chaos with one intelligent workflow.
+      <p className="mt-4 text-gray-500 text-sm sm:text-base max-w-full sm:max-w-[320px]">
+        From mood boards to payments, Abirio replaces scattered messages, spreadsheets,
+        and last-minute chaos with one intelligent workflow.
       </p>
-
-      {/* Download Buttons */}
-      <div className="flex flex-col sm:flex-row gap-3 mt-1">
-        <DownloadButton
-  store="appstore" 
-  onClick={() => console.log('App Store clicked')} 
-/>
-
-<DownloadButton 
-  store="playstore" 
-    onClick={() => console.log('App Store clicked')} 
-
-/>
-      </div>
     </div>
 
-    {/* Support */}
-    <div className="flex flex-col gap-4">
-      <h3 className="text-lg sm:text-base md:text-lg font-semibold">Support</h3>
-      <ul className="flex flex-col gap-2 text-gray-500">
-        {["Help Center", "Terms of Service", "Privacy Policy"].map((item) => (
-          <li key={item}>
-            <a href="#" className="hover:text-black text-base sm:text-sm md:text-base transition-colors">{item}</a>
-          </li>
-        ))}
+    {/* Column 2 */}
+    <div>
+      <h3 className="text-base sm:text-lg font-semibold mb-4">Support</h3>
+      <ul className="space-y-2">
+        <li className="text-sm sm:text-base"><a href="#" className="hover:text-black">Help Center</a></li>
+        <li className="text-sm sm:text-base"><a href="#" className="hover:text-black">Terms of Service</a></li>
+        <li className="text-sm sm:text-base"><a href="#" className="hover:text-black">Privacy Policy</a></li>
       </ul>
     </div>
 
-    {/* Contact */}
-    <div className="flex flex-col gap-4">
-      <h3 className="text-lg sm:text-base md:text-lg font-semibold">Contact</h3>
-      <ul className="flex flex-col gap-2 text-gray-500 text-base sm:text-sm md:text-base">
-        <li>Email: info@example.com</li>
-        <li>Phone: +1 234 567 890</li>
-        <li>Location: Nairobi, Kenya</li>
+    {/* Column 3 */}
+    <div>
+      <h3 className="text-base sm:text-lg font-semibold mb-4">Contact</h3>
+      <ul className="space-y-2">
+        <li className="text-sm sm:text-base">Email: info@example.com</li>
+        <li className="text-sm sm:text-base">Phone: +1 234 567 890</li>
+        <li className="text-sm sm:text-base">Location: Nairobi, Kenya</li>
       </ul>
     </div>
 
-    {/* Resources */}
-    <div className="flex flex-col gap-4">
-      <h3 className="text-lg sm:text-base md:text-lg font-semibold">Resources</h3>
-      <ul className="flex flex-col gap-2 text-gray-500">
-        {["Pricing", "Blog", "Documentation"].map((item) => (
-          <li key={item}>
-            <a href="#" className="hover:text-black text-base sm:text-sm md:text-base transition-colors">{item}</a>
-          </li>
-        ))}
+    {/* Column 4 */}
+    <div>
+      <h3 className="text-base sm:text-lg font-semibold mb-4">Resources</h3>
+      <ul className="space-y-2">
+        <li className="text-sm sm:text-base"><a href="#" className="hover:text-black">Pricing</a></li>
+        <li className="text-sm sm:text-base"><a href="#" className="hover:text-black">Blog</a></li>
+        <li className="text-sm sm:text-base"><a href="#" className="hover:text-black">Documentation</a></li>
       </ul>
     </div>
   </div>
 
-  <div className="border-t border-gray-100 py-5 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-    <p className="text-sm sm:text-xs md:text-sm text-gray-500 text-center sm:text-left">
-      © {new Date().getFullYear()} Nkirra. All rights reserved.
-    </p>
+  <div className="mt-10 text-xs sm:text-sm text-gray-500 text-center sm:text-left max-w-7xl mx-auto px-6 lg:px-8">
+    © {new Date().getFullYear()} Your Company. All rights reserved.
   </div>
 </footer>
 
