@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/sidebar"
 import { Home, FileText, Settings, Users, BarChart3, Database, Menu, X, LogOut } from "lucide-react"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 
 export function AppSidebar() {
   const {state,
@@ -26,6 +27,7 @@ export function AppSidebar() {
     setOpenMobile,
     isMobile,
     toggleSidebar} = useSidebar();
+  const pathname = usePathname();
 
   const dashboardItems = [
     {
@@ -34,27 +36,37 @@ export function AppSidebar() {
       url: "/dashboard"
     },
     {
-      title: "Analytics",
+      title: "Contributions",
       icon: BarChart3,
       url: "/analytics"
     },
     {
-      title: "Documents",
+      title: "Request Support",
       icon: FileText,
       url: "/documents"
     },
     {
-      title: "Team",
+      title: "Group Ledgers",
       icon: Users,
       url: "/team"
     },
     {
-      title: "Database",
+      title: "My Statements",
       icon: Database,
       url: "/database"
     },
     {
-      title: "Settings",
+      title: "Beneficiaries",
+      icon: Settings,
+      url: "/settings"
+    },
+    {
+      title: "Announcements",
+      icon: Settings,
+      url: "/settings"
+    },
+    {
+      title: "Profile",
       icon: Settings,
       url: "/settings"
     }
@@ -66,12 +78,23 @@ export function AppSidebar() {
         <div className="flex items-center justify-between w-full">
           {(open || isMobile) && (
             <SidebarMenuButton size="lg" className="data-sidebar-menu-button-lg">
-              <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                <Image src="/file.svg" alt="File" width={20} height={20} />
+              <div className="flex aspect-square size-8 items-center justify-center rounded-lg  text-sidebar-primary-foreground">
+                <Image
+                            src="/logo1.png"
+                            alt="Logo"
+                            width={70}
+                            height={70}
+                            className="w-[15%] max-w-[70px] min-w-[65px] h-auto"
+                          />
               </div>
               <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-semibold">Nkirra</span>
-                <span className="text-xs text-muted-foreground">Dashboard</span>
+                <Image
+                            src="/logo.png"
+                            alt="Logo"
+                            width={70}
+                            height={70}
+                            className="w-[15%] max-w-[70px] min-w-[65px] h-auto"
+                          />
               </div>
             </SidebarMenuButton>
           )}
@@ -90,16 +113,22 @@ export function AppSidebar() {
           <SidebarGroupLabel>Main</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {dashboardItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild className="h-12 text-base">
-                    <a href={item.url}>
-                      <item.icon className="h-5 w-5" />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {dashboardItems.map((item) => {
+                const isActive = pathname === item.url || (pathname === "/" && item.url === "/dashboard");
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton 
+                      asChild 
+                      className={`h-10 text-md  ${isActive ? 'sidebar-menu-active' : ''}`}
+                    >
+                      <a href={item.url}>
+                        <item.icon className="h-10 w-10" />
+                        <span>{item.title}</span>
+                      </a>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

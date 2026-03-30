@@ -21,6 +21,8 @@ import {
 } from "@/components/ui/chart"
 import TableData from '@/components/TableData'
 import { ChartPieDonutText } from '@/components/PieData'
+import { Transactions } from '@/components/Transactions'
+import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from '@/components/ui/combobox'
 
 export const description = "A simple area chart"
 
@@ -46,16 +48,24 @@ const pendingItems = [
 ]
 
 const statCards = [
-  { label: "Total Contribution", value: "$78,000" },
-  { label: "Total Members", value: "$78,000" },
-  { label: "Active Funds", value: "$78,000" },
+  { label: "Total Contributions", value: "$78,000", image: "/icons/add-square-svgrepo-com.svg",icon: '/icons/down.svg',iconColor: '#0a215d',colorBack: '#dbeafe' },
+  { label: "Amount Recieved", value: "$78,000", image: "/icons/money-send-svgrepo-com.svg",icon: '/icons/up.svg',iconColor: '#0a215d',colorBack: '#dbeafe' },
+  { label: "Amount Payout", value: "$78,000", image: "/icons/money-recive-svgrepo-com.svg",icon: '/icons/down.svg',iconColor: '#ef4444',colorBack: '#fee2e2' },
 ]
 
+ const frameworks = [
+  "Next.js",
+  "SvelteKit",
+  "Nuxt.js",
+  "Remix",
+  "Astro",
+] as const
+
 const quickActions = [
-  { icon: "/globe.svg", label: "Transact" },
-  { icon: "/globe.svg", label: "Transfer" },
-  { icon: "/globe.svg", label: "Pay" },
-  { icon: "/globe.svg", label: "More" },
+  { icon: "/icons/add-square-svgrepo-com.svg", label: "Top Up" },
+  { icon: "/icons/money-send-svgrepo-com.svg", label: "Transfer" },
+  { icon: "/icons/money-recive-svgrepo-com.svg", label: "Pay" },
+  { icon: "/icons/history-svgrepo-com.svg", label: "More" },
 ]
 
 const activityItems = [
@@ -94,34 +104,42 @@ const page = () => {
     <div className="flex flex-col w-full min-w-0 overflow-x-hidden p-5 gap-5">
 
       {/* ── Top bar ──────────────────────────────────────────────────── */}
-      <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 flex-wrap shrink-0">
+      <header className="flex flex-col justify-between sm:flex-row sm:items-start  gap-3 flex-wrap shrink-0">
         <div className="shrink-0">
           <h1 className="text-2xl sm:text-3xl font-bold text-brand">Faida Group</h1>
           <p className="text-sm sm:text-base font-extralight text-gray-500">Dashboard</p>
         </div>
 
-        <div className="flex items-center gap-2 min-w-0 flex-wrap">
+        <div className="flex items-center gap-2 sm:gap-4 min-w-0 flex-wrap sm:flex-nowrap">
           <InputGroupKbd />
-          <div className="flex items-center gap-2 shrink-0">
-            <button className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors">
-              <Image src="/globe.svg" alt="notifications" width={16} height={16} />
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 order-3 sm:order-2 ml-auto sm:ml-0">
+            
+            <button className="p-1.5 sm:p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors cursor-pointer">
+              <Image src="/icons/message-text-svgrepo-com.svg" alt="settings" width={14} height={14} className="sm:w-4 sm:h-4 w-3.5 h-3.5" />
             </button>
-            <button className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors">
-              <Image src="/globe.svg" alt="settings" width={16} height={16} />
+
+            <button className="p-1.5 sm:p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors cursor-pointer">
+              <Image src="/icons/notification-svgrepo-com.svg" alt="notifications" width={14} height={14} className="sm:w-4 sm:h-4 w-3.5 h-3.5" />
             </button>
           </div>
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="text-sm font-semibold text-brand truncate max-w-[80px] sm:max-w-[110px]">Andrew Forbist</span>
+          <div className="flex items-center justify-end gap-2 sm:gap-3 min-w-[120px] sm:min-w-[150px] order-2 sm:order-3">
+            <div className='flex flex-col gap-1 sm:gap-2'>
+              <span className="text-xs sm:text-sm font-semibold text-brand truncate max-w-[70px] sm:max-w-[110px]">Andrew Forbist</span>
+              <span className="text-xs text-gray-500">Member</span>
+            </div>
             <Image
               src="/jurica.jpg"
               width={32}
               height={32}
               alt="Jurica"
-              className="rounded-full w-8 h-8 sm:w-9 sm:h-9 object-cover shrink-0"
+              className="rounded-full w-7 h-7 sm:w-8 sm:h-9 object-cover shrink-0"
             />
           </div>
         </div>
       </header>
+
+      {/* <div className="border-b w-full border-gray-200 p-0 "></div> */}
+      {/* <div className="border-b w-full border-gray-200 p-0 mx-0 block"></div> */}
 
       {/* ── Responsive layout ──────────────────────────────────────────── */}
       {/*
@@ -140,26 +158,26 @@ const page = () => {
           </div>
 
           {/* Quick-action strip */}
-          <div className="flex items-center justify-between rounded-xl bg-gray-100 divide-x divide-gray-300 shrink-0">
+          <div className="flex h-[80px] items-center justify-between rounded-xl bg-gray-100 divide-x divide-gray-300 shrink-0 cursor-pointer">
             {quickActions.map(({ icon, label }) => (
               <button
                 key={label}
-                className="flex flex-col items-center gap-1 py-3 flex-1 hover:bg-gray-200 transition-colors first:rounded-l-xl last:rounded-r-xl"
+                className="flex flex-col h-full items-center gap-1 py-3 flex-1 hover:bg-gray-200 transition-colors cursor-pointer"
               >
-                <Image src={icon} alt={label} width={22} height={22} className="bg-white p-1.5 rounded-full shadow-sm" />
+                <Image src={icon} alt={label} width={22} height={22} className="   " />
                 <span className="text-sm font-medium text-gray-700">{label}</span>
               </button>
             ))}
           </div>
 
           {/* Ongoing contribution countdown */}
-          <div className="rounded-xl border border-gray-200 p-4 shadow-sm bg-white hover:shadow-md transition-shadow shrink-0">
-            <p className="text-sm font-semibold text-brand tracking-widest uppercase mb-2">
+          <div className="rounded-xl border border-gray-200 p-4 shadow-sm bg-white hover:shadow-md transition-shadow shrink-0 ">
+            <p className="text-lg font-semibold text-brand  mb-2">
               Ongoing Contribution
             </p>
             <div className="flex items-center gap-3">
               <Image src="/time-1.png" alt="countdown" width={38} height={38} className="opacity-80 shrink-0" />
-              <span className="text-4xl font-extrabold text-red-600 leading-none shrink-0">4</span>
+              <span className="text-4xl font-extrabold text-[#ef4444] leading-none shrink-0">4</span>
               <div className="flex flex-col min-w-0">
                 <p className="text-sm text-gray-500 truncate">
                   Days Remaining of <span className="font-semibold text-gray-700">30</span>
@@ -174,9 +192,9 @@ const page = () => {
           {/* Pending contributions
               flex-1 → stretches to fill remaining column height so all 3 cols are equal */}
           <Card className="flex flex-col flex-1 min-h-0">
-            <CardHeader className="pb-2 shrink-0">
+            <CardHeader className="pb-2 shrink-0 border-b-1 border-gray-100">
               <CardTitle className="flex items-center justify-between">
-                <span className="text-sm font-medium tracking-widest uppercase text-gray-400">
+                <span className="text-lg text-brand">
                   Pending Contributions
                 </span>
                 <span className="text-sm font-medium bg-amber-50 text-amber-600 px-2 py-0.5 rounded-md">
@@ -191,7 +209,7 @@ const page = () => {
                   key={i}
                   className="flex items-center gap-2 p-2.5 bg-gray-50 border border-gray-100 rounded-xl min-w-0"
                 >
-                  <div className="flex flex-col items-center justify-center w-9 h-9 rounded-lg bg-[#a9012b] shrink-0">
+                  <div className="flex flex-col items-center justify-center w-9 h-9 rounded-lg bg-[#ef4444] shrink-0">
                     <span className="text-sm font-medium text-white leading-none">{item.day}</span>
                     <span className="text-xs text-red-200 mt-0.5 tracking-wide">{item.month}</span>
                   </div>
@@ -221,15 +239,21 @@ const page = () => {
 
           {/* Stat cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 shrink-0">
-            {statCards.map(({ label, value }) => (
-              <Card key={label} className="overflow-hidden">
-                <CardContent className="p-4 flex flex-col gap-2">
-                  <div className="w-9 h-9 bg-red-50 rounded-md flex items-center justify-center shrink-0">
-                    <Image src="/globe.svg" alt={label} width={18} height={18} />
+            {statCards.map(({ label, value,image,icon ,iconColor,colorBack}) => (
+              <Card key={label} className="">
+                <CardContent className="p-4 flex flex-col gap-8 justify-between ">
+                  <div className="w-14 h-14 bg-red-50 rounded-md flex items-center justify-center shrink-0" style={{ backgroundColor: colorBack }}>
+                    <Image src={image} alt={label} width={24} height={24} />
                   </div>
-                  <div>
-                    <p className="text-2xl font-semibold text-gray-900 truncate">{value}</p>
-                    <p className="text-sm font-light text-gray-500 truncate">{label}</p>
+                  <div className='flex flex-col gap-2'>
+                    <div className={`flex text-white  w-[60px] p-0.5 rounded-xl justify-around`} style={{ backgroundColor: iconColor }}>
+                      <Image
+                        src={icon} alt={label} width={14} height={14}
+                      />
+                      24%
+                    </div>
+                    <p className="text-3xl font-semibold text-gray-900 truncate" style={{ color: iconColor }}>{value}</p>
+                    <p className="text-md font-normal text-gray-500 truncate" style={{ color: iconColor }}>{label}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -238,35 +262,52 @@ const page = () => {
 
           {/* Area chart */}
           <Card className="shrink-0">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg">Area Chart</CardTitle>
-              <CardDescription className="text-sm">Showing total visitors for the last 6 months</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ChartContainer config={chartConfig} className="w-full h-[180px]">
-                <AreaChart accessibilityLayer data={chartData} margin={{ left: 8, right: 8 }}>
-                  <CartesianGrid vertical={false} />
-                  <XAxis
-                    dataKey="month"
-                    tickLine={false}
-                    axisLine={false}
-                    tickMargin={8}
-                    tickFormatter={(v) => v.slice(0, 3)}
-                    tick={{ fontSize: 12 }}
-                  />
-                  <YAxis tickLine={false} axisLine={false} tickMargin={8} tick={{ fontSize: 12 }} />
-                  <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
-                  <Area
-                    dataKey="desktop"
-                    type="natural"
-                    fill="var(--color-desktop)"
-                    fillOpacity={0.4}
-                    stroke="var(--color-desktop)"
-                  />
-                </AreaChart>
-              </ChartContainer>
-            </CardContent>
-          </Card>
+  <CardHeader className="pb-2 border-b-1 border-gray-100 flex justify-between">
+    <div>
+      <CardTitle className="text-lg">Area Chart</CardTitle>
+      <CardDescription className="text-sm">Showing total Contributions for the last 6 months</CardDescription>
+    </div>
+
+<Combobox items={frameworks}>
+      <ComboboxInput placeholder="Select a framework" />
+      <ComboboxContent>
+        <ComboboxEmpty>No items found.</ComboboxEmpty>
+        <ComboboxList>
+          {(item) => (
+            <ComboboxItem key={item} value={item}>
+              {item}
+            </ComboboxItem>
+          )}
+        </ComboboxList>
+      </ComboboxContent>
+    </Combobox>
+  </CardHeader>
+  <CardContent className="flex justify-center items-center">
+    <ChartContainer config={chartConfig} className="w-full h-[180px]">
+      <AreaChart accessibilityLayer data={chartData} margin={{ left: 8, right: 4 }}>
+        <CartesianGrid vertical={false} />
+        <XAxis
+          dataKey="month"
+          tickLine={false}
+          axisLine={false}
+          tickMargin={8}
+          tickFormatter={(v) => v.slice(0, 3)}
+          tick={{ fontSize: 12 }}
+        />
+        {/* <YAxis tickLine={false} axisLine={false} tickMargin={8} tick={{ fontSize: 12 }}  /> */}
+        <YAxis tickLine={false} axisLine={false} tickMargin={8} tick={{ fontSize: 12 }} label={{ value: 'Contributions', angle: -90, position: 'insideLeft' }} />
+        <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
+        <Area
+          dataKey="desktop"
+          type="natural"
+          fill="var(--color-desktop)"
+          fillOpacity={0.4}
+          stroke="var(--color-desktop)"
+        />
+      </AreaChart>
+    </ChartContainer>
+  </CardContent>
+</Card>
 
           {/* Table — flex-1 fills the rest of the column height */}
           <div className="flex-1 min-h-0 w-full min-w-0">
@@ -283,71 +324,7 @@ const page = () => {
           </div>
 
           {/* Recent activity — flex-1 fills remaining height so all cols are equal */}
-          <Card className="flex flex-col flex-1 min-h-0">
-            <CardHeader className="pb-2 shrink-0">
-              <p className="text-brand text-lg font-semibold">Recent Activity</p>
-            </CardHeader>
-
-            <CardContent className="flex flex-col flex-1 min-h-0 overflow-y-auto">
-              {/* Date group 1 */}
-              <p className="text-sm font-medium uppercase text-muted-foreground mb-2 ps-1">
-                1 Aug, 2023
-              </p>
-
-              {activityItems.map((item, i) => (
-                <div key={i} className="flex gap-2.5 mb-4">
-                  <div className="relative flex flex-col items-center">
-                    <div className="z-10 w-6 h-6 flex items-center justify-center shrink-0">
-                      {item.avatar ? (
-                        <img className="w-6 h-6 rounded-full object-cover" src={item.avatar} alt={item.user} />
-                      ) : (
-                        <span className="flex items-center justify-center w-6 h-6 bg-gray-100 border border-gray-200 rounded-full text-sm font-semibold text-gray-600 uppercase">
-                          {item.initials}
-                        </span>
-                      )}
-                    </div>
-                    {i < activityItems.length - 1 && (
-                      <div className="w-px flex-1 bg-gray-200 mt-1" />
-                    )}
-                  </div>
-                  <div className="flex-1 min-w-0 pb-1">
-                    <p className="text-base font-medium text-gray-800">{item.title}</p>
-                    {item.sub && <p className="mt-0.5 text-base text-gray-500">{item.sub}</p>}
-                    <button className="mt-1 flex items-center gap-1 text-base text-gray-400 hover:text-gray-600 transition-colors">
-                      {item.avatar ? (
-                        <img className="w-3.5 h-3.5 rounded-full" src={item.avatar} alt={item.user} />
-                      ) : (
-                        <span className="flex items-center justify-center w-3.5 h-3.5 bg-gray-100 border border-gray-200 rounded-full text-sm font-semibold uppercase">
-                          {item.initials}
-                        </span>
-                      )}
-                      {item.user}
-                    </button>
-                  </div>
-                </div>
-              ))}
-
-              {/* Date group 2 */}
-              <p className="text-sm font-medium uppercase text-muted-foreground mb-2 ps-1 mt-2">
-                31 Jul, 2023
-              </p>
-              <div className="flex gap-2.5">
-                <div className="z-10 w-6 h-6 flex items-center justify-center shrink-0">
-                  <span className="flex items-center justify-center w-6 h-6 bg-gray-100 border border-gray-200 rounded-full">
-                    <svg className="w-3 h-3 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M16 3h5v5" /><path d="M8 3H3v5" />
-                      <path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3" />
-                      <path d="m15 9 6-6" />
-                    </svg>
-                  </span>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-800">Take a break ⛳️</p>
-                  <p className="mt-0.5 text-sm text-gray-500">Just chill for now... 😉</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          <Transactions/>
         </div>
 
       </div>

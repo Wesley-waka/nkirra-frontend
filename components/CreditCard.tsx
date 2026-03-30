@@ -3,22 +3,23 @@ import Image from "next/image";
 
 export default function CreditCard() {
   return (
-    <div className="w-full max-w-sm lg:max-w-full mx-auto">
+    <div className="w-full min-w-0">
       <div
-        className="relative w-full aspect-[16/10] rounded-2xl md:rounded-3xl px-4 md:px-7 py-4 md:py-6 text-white shadow-2xl overflow-hidden"
+        className="relative w-full rounded-2xl px-[5%] py-[4%] text-white shadow-2xl overflow-hidden"
         style={{
           background:
             "linear-gradient(135deg, #ff2a2a 0%, #7b3fe4 45%, #1e40af 100%)",
+          aspectRatio: "16/10",
         }}
       >
         {/* Top Left Logo */}
-        <div className="absolute top-3 md:top-5 left-4 md:left-6 flex items-center">
+        <div className="absolute top-[8%] left-[5%] flex items-center">
           <Image
-            src="/logo1.png"
+            src="/logo.png"
             alt="Logo"
-            width={55}
-            height={55}
-            className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14"
+            width={70}
+            height={70}
+            className="w-[15%] max-w-[70px] min-w-[65px] h-auto"
           />
         </div>
 
@@ -51,35 +52,70 @@ export default function CreditCard() {
         </div>
 
         {/* Cardholder Name */}
-        <div className="mt-[55px] sm:mt-[70px] md:mt-[85px] text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight">
+        <div
+          className="absolute font-semibold tracking-tight"
+          style={{
+            top: "38%",
+            left: "5%",
+            fontSize: "clamp(0.85rem, 4cqw, 1.75rem)",
+          }}
+        >
           Andrew Forbist
         </div>
 
         {/* Balance */}
-        <div className="mt-3 sm:mt-5 md:mt-6">
-          <div className="text-xs sm:text-sm md:text-base opacity-80 tracking-wide">
-            Balance Amount
-          </div>
-          <div className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight">
-            $562,000
-          </div>
-        </div>
+        {/* Bottom: Balance + EXP/CVV on same row */}
+<div className="absolute bottom-[8%] left-[5%] right-[5%] flex items-end justify-between">
+  
+  {/* Balance */}
+  <div>
+    <div
+      className="opacity-80 tracking-wide"
+      style={{ fontSize: "clamp(0.6rem, 2.5cqw, 1rem)" }}
+    >
+      Balance Amount
+    </div>
+    <div
+      className="font-semibold tracking-tight leading-tight"
+      style={{ fontSize: "clamp(1rem, 5.5cqw, 2rem)" }}
+    >
+      $562,000
+    </div>
+  </div>
 
-        {/* Bottom Right Details */}
-        <div className="absolute bottom-3 sm:bottom-5 md:bottom-7 right-3 sm:right-5 md:right-7 flex gap-6 sm:gap-10 md:gap-12 text-right">
-          <div>
-            <div className="text-xs sm:text-sm md:text-base opacity-70">EXP</div>
-            <div className="text-base sm:text-lg md:text-xl font-semibold">
-              11/29
-            </div>
-          </div>
-          <div>
-            <div className="text-xs sm:text-sm md:text-base opacity-70">CVV</div>
-            <div className="text-base sm:text-lg md:text-xl font-semibold">
-              323
-            </div>
-          </div>
-        </div>
+  {/* EXP + CVV */}
+  <div className="flex gap-[6%] text-right">
+    <div>
+      <div
+        className="opacity-70"
+        style={{ fontSize: "clamp(0.55rem, 2cqw, 0.9rem)" }}
+      >
+        EXP
+      </div>
+      <div
+        className="font-semibold"
+        style={{ fontSize: "clamp(0.75rem, 3cqw, 1.25rem)" }}
+      >
+        11/29
+      </div>
+    </div>
+    <div>
+      <div
+        className="opacity-70"
+        style={{ fontSize: "clamp(0.55rem, 2cqw, 0.9rem)" }}
+      >
+        CVV
+      </div>
+      <div
+        className="font-semibold"
+        style={{ fontSize: "clamp(0.75rem, 3cqw, 1.25rem)" }}
+      >
+        323
+      </div>
+    </div>
+  </div>
+
+</div>
       </div>
     </div>
   );

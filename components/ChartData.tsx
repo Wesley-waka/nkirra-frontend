@@ -62,7 +62,7 @@ const Example = () => {
         >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis tickLine={false} axisLine={false} tickMargin={8} tick={{ fontSize: 12 }} label={{ value: 'Value', angle: -90, position: 'insideLeft' }} />
           <Tooltip />
           <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
         </AreaChart>

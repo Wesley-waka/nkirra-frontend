@@ -1,8 +1,10 @@
 import React from 'react'
+import { Button } from './ui/button'
+import { CardTitle } from './ui/card'
 
 const TableData = () => {
   return (
-<div className=" px-4 py-10 sm:px-6 lg:px-2 lg:py-4 mx-auto">
+<div className=" px-4 py-10 sm:px-6 lg:px-0 lg:py-0 mx-auto">
   {/* Card  */}
   <div className="flex flex-col">
     <div className="-m-1.5 overflow-x-auto">
@@ -11,12 +13,11 @@ const TableData = () => {
           {/* Header */}
           <div className="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-table-line">
             <div>
-              <h2 className="text-xl font-semibold text-foreground">
-                Teams
-              </h2>
-              <p className="text-sm text-muted-foreground-2">
+                    <CardTitle className="text-lg">Transaction</CardTitle>
+
+              {/* <p className="text-sm text-muted-foreground-2">
                 Create teams, edit, download and more.
-              </p>
+              </p> */}
             </div>
 
             <div>
@@ -78,23 +79,23 @@ const TableData = () => {
                   </button>
                   <div className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-40 z-20 bg-dropdown border border-dropdown-line divide-y divide-dropdown-divider shadow-2xl rounded-lg" role="menu" aria-orientation="vertical" aria-labelledby="hs-as-table-table-filter-dropdown">
                     <div className="divide-y divide-dropdown-divider">
-                      <label for="hs-as-filters-dropdown-frequency" className="flex items-center py-2.5 px-3">
+                      <label htmlFor="hs-as-filters-dropdown-frequency" className="flex items-center py-2.5 px-3">
                         <input type="checkbox" className="shrink-0 size-4 bg-transparent border-line-3 rounded-sm shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none" id="hs-as-filters-dropdown-frequency" checked />
                         <span className="ms-3 text-sm text-foreground">Frequency</span>
                       </label>
-                      <label for="hs-as-filters-dropdown-status" className="flex items-center py-2.5 px-3">
+                      <label htmlFor="hs-as-filters-dropdown-status" className="flex items-center py-2.5 px-3">
                         <input type="checkbox" className="shrink-0 size-4 bg-transparent border-line-3 rounded-sm shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none" id="hs-as-filters-dropdown-status" checked />
                         <span className="ms-3 text-sm text-foreground">Status</span>
                       </label>
-                      <label for="hs-as-filters-dropdown-created" className="flex items-center py-2.5 px-3">
+                      <label htmlFor="hs-as-filters-dropdown-created" className="flex items-center py-2.5 px-3">
                         <input type="checkbox" className="shrink-0 size-4 bg-transparent border-line-3 rounded-sm shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none" id="hs-as-filters-dropdown-created" />
                         <span className="ms-3 text-sm text-foreground">Created</span>
                       </label>
-                      <label for="hs-as-filters-dropdown-due-date" className="flex items-center py-2.5 px-3">
+                      <label htmlFor="hs-as-filters-dropdown-due-date" className="flex items-center py-2.5 px-3">
                         <input type="checkbox" className="shrink-0 size-4 bg-transparent border-line-3 rounded-sm shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none" id="hs-as-filters-dropdown-due-date" />
                         <span className="ms-3 text-sm text-foreground">Due Date</span>
                       </label>
-                      <label for="hs-as-filters-dropdown-amount" className="flex items-center py-2.5 px-3">
+                      <label htmlFor="hs-as-filters-dropdown-amount" className="flex items-center py-2.5 px-3">
                         <input type="checkbox" className="shrink-0 size-4 bg-transparent border-line-3 rounded-sm shadow-2xs text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary-checked checked:border-primary-checked disabled:opacity-50 disabled:pointer-events-none" id="hs-as-filters-dropdown-amount" />
                         <span className="ms-3 text-sm text-foreground">Amount</span>
                       </label>
@@ -102,7 +103,7 @@ const TableData = () => {
                   </div>
                 </div>
 
-                <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg bg-primary border border-primary-line text-primary-foreground hover:bg-primary-hover focus:outline-hidden focus:bg-primary-focus disabled:opacity-50 disabled:pointer-events-none">
+                <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg bg-red-600 border border-primary-line text-primary-foreground hover:bg-primary-hover focus:outline-hidden focus:bg-primary-focus disabled:opacity-50 disabled:pointer-events-none">
                   Download all
                 </button>
               </div>
@@ -114,14 +115,14 @@ const TableData = () => {
               <tr>
                 <th scope="col" className="px-6 py-3 text-start">
                   <a className="group inline-flex items-center gap-x-2 text-xs font-semibold uppercase text-foreground hover:text-muted-foreground-1 focus:outline-hidden focus:text-muted-foreground-1" href="#">
-                    Team
+                    Transaction
                     <svg className="shrink-0 size-3.5 text-foreground" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
                   </a>
                 </th>
 
                 <th scope="col" className="px-6 py-3 text-start">
                   <a className="group inline-flex items-center gap-x-2 text-xs font-semibold uppercase text-foreground hover:text-muted-foreground-1 focus:outline-hidden focus:text-muted-foreground-1" href="#">
-                    Description
+                    Date
                     <svg className="shrink-0 size-3.5 text-foreground" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
                   </a>
                 </th>
@@ -164,14 +165,14 @@ const TableData = () => {
                 <td className="size-px whitespace-nowrap">
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
-                      <div className="block text-sm text-primary decoration-2 hover:underline">#event</div>
+                      <div className="block text-sm text-primary decoration-2 hover:underline">Catherine Benevolent Funding</div>
                     </div>
                   </a>
                 </td>
                 <td className="h-px w-36 min-w-36">
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
-                      <p className="text-sm text-muted-foreground-1">to paper methods</p>
+                      <p className="text-sm text-muted-foreground-1">2025-10-15</p>
                     </div>
                   </a>
                 </td>
@@ -179,67 +180,22 @@ const TableData = () => {
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
                       <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
-                        Organize
+                        $200
                       </span>
                     </div>
                   </a>
                 </td>
                 <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex gap-x-1">
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"/>
-                      </svg>
-                    </div>
-                  </a>
+                  <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
+                        Will do so
+                      </span>
                 </td>
                 <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex -space-x-2">
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">A</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Alex Brown
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <img className="inline-block size-6 rounded-full ring-2 ring-layer" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar" />
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Amanda Jr.
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">T</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Tibek Winston
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex justify-center items-center size-6 bg-surface text-xs rounded-full ring-2 ring-layer">
-                          <span className="font-medium text-surface-foreground">2+</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Rachel Does and Brian Halligan
-                        </span>
-                      </div>
-                    </div>
-                  </a>
+                  <div className='w-[60px] border-2 border-red-400 text-red-400 rounded-lg p-1 text-sm  text-center'>Paid</div>
+                  {/* <div className='w-[60px]  bg-red-400 text-white rounded-lg p-1 px-2 text-sm  text-center'>Pending</div> */}
+                  {/* <div className='w-[60px] border-2 border-blue-400 text-blue-400 rounded-lg p-1 text-sm  text-center'>Failed</div> */}
+
+
                 </td>
                 
               </tr>
@@ -248,14 +204,14 @@ const TableData = () => {
                 <td className="size-px whitespace-nowrap">
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
-                      <div className="block text-sm text-primary decoration-2 hover:underline">#event</div>
+                      <div className="block text-sm text-primary decoration-2 hover:underline">Catherine Benevolent Funding</div>
                     </div>
                   </a>
                 </td>
                 <td className="h-px w-36 min-w-36">
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
-                      <p className="text-sm text-muted-foreground-1">to paper methods</p>
+                      <p className="text-sm text-muted-foreground-1">2025-10-15</p>
                     </div>
                   </a>
                 </td>
@@ -263,151 +219,22 @@ const TableData = () => {
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
                       <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
-                        Organize
+                        $200
                       </span>
                     </div>
                   </a>
                 </td>
                 <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex gap-x-1">
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"/>
-                      </svg>
-                    </div>
-                  </a>
+                  <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
+                        Will do so
+                      </span>
                 </td>
                 <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex -space-x-2">
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">A</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Alex Brown
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <img className="inline-block size-6 rounded-full ring-2 ring-layer" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar" />
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Amanda Jr.
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">T</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Tibek Winston
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex justify-center items-center size-6 bg-surface text-xs rounded-full ring-2 ring-layer">
-                          <span className="font-medium text-surface-foreground">2+</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Rachel Does and Brian Halligan
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </td>
-                
-              </tr>
+                  {/* <div className='w-[50px] border-2 border-red-400 text-red-400 rounded-lg p-1 text-sm  text-center'>Paid</div> */}
+                  <div className='w-[60px]  bg-red-400 text-white rounded-lg p-1 px-2 text-sm  text-center'>Pending</div>
+                  {/* <div className='w-[60px] border-2 border-blue-400 text-blue-400 rounded-lg p-1 text-sm  text-center'>Failed</div> */}
 
-              <tr className="bg-layer hover:bg-layer-hover">
-                <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2">
-                      <div className="block text-sm text-primary decoration-2 hover:underline">#event</div>
-                    </div>
-                  </a>
-                </td>
-                <td className="h-px w-36 min-w-36">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2">
-                      <p className="text-sm text-muted-foreground-1">to paper methods</p>
-                    </div>
-                  </a>
-                </td>
-                <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2">
-                      <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
-                        Organize
-                      </span>
-                    </div>
-                  </a>
-                </td>
-                <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex gap-x-1">
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"/>
-                      </svg>
-                    </div>
-                  </a>
-                </td>
-                <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex -space-x-2">
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">A</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Alex Brown
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <img className="inline-block size-6 rounded-full ring-2 ring-layer" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar" />
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Amanda Jr.
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">T</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Tibek Winston
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex justify-center items-center size-6 bg-surface text-xs rounded-full ring-2 ring-layer">
-                          <span className="font-medium text-surface-foreground">2+</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Rachel Does and Brian Halligan
-                        </span>
-                      </div>
-                    </div>
-                  </a>
+
                 </td>
                 
               </tr>
@@ -416,14 +243,14 @@ const TableData = () => {
                 <td className="size-px whitespace-nowrap">
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
-                      <div className="block text-sm text-primary decoration-2 hover:underline">#event</div>
+                      <div className="block text-sm text-primary decoration-2 hover:underline">Catherine Benevolent Funding</div>
                     </div>
                   </a>
                 </td>
                 <td className="h-px w-36 min-w-36">
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
-                      <p className="text-sm text-muted-foreground-1">to paper methods</p>
+                      <p className="text-sm text-muted-foreground-1">2025-10-15</p>
                     </div>
                   </a>
                 </td>
@@ -431,67 +258,22 @@ const TableData = () => {
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
                       <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
-                        Organize
+                        $200
                       </span>
                     </div>
                   </a>
                 </td>
                 <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex gap-x-1">
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"/>
-                      </svg>
-                    </div>
-                  </a>
+                  <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
+                        Will do so
+                      </span>
                 </td>
                 <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex -space-x-2">
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">A</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Alex Brown
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <img className="inline-block size-6 rounded-full ring-2 ring-layer" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar" />
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Amanda Jr.
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">T</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Tibek Winston
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex justify-center items-center size-6 bg-surface text-xs rounded-full ring-2 ring-layer">
-                          <span className="font-medium text-surface-foreground">2+</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Rachel Does and Brian Halligan
-                        </span>
-                      </div>
-                    </div>
-                  </a>
+                  {/* <div className='w-[50px] border-2 border-red-400 text-red-400 rounded-lg p-1 text-sm  text-center'>Paid</div> */}
+                  {/* <div className='w-[60px]  bg-red-400 text-white rounded-lg p-1 px-2 text-sm  text-center'>Pending</div> */}
+                  <div className='w-[60px] border-2 border-blue-400 text-blue-400 rounded-lg p-1 text-sm  text-center'>Failed</div>
+
+
                 </td>
                 
               </tr>
@@ -500,14 +282,14 @@ const TableData = () => {
                 <td className="size-px whitespace-nowrap">
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
-                      <div className="block text-sm text-primary decoration-2 hover:underline">#event</div>
+                      <div className="block text-sm text-primary decoration-2 hover:underline">Catherine Benevolent Funding</div>
                     </div>
                   </a>
                 </td>
                 <td className="h-px w-36 min-w-36">
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
-                      <p className="text-sm text-muted-foreground-1">to paper methods</p>
+                      <p className="text-sm text-muted-foreground-1">2025-10-15</p>
                     </div>
                   </a>
                 </td>
@@ -515,83 +297,39 @@ const TableData = () => {
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
                       <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
-                        Organize
+                        $200
                       </span>
                     </div>
                   </a>
                 </td>
                 <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex gap-x-1">
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"/>
-                      </svg>
-                    </div>
-                  </a>
+                  <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
+                        Will do so
+                      </span>
                 </td>
                 <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex -space-x-2">
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">A</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Alex Brown
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <img className="inline-block size-6 rounded-full ring-2 ring-layer" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar" />
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Amanda Jr.
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">T</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Tibek Winston
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex justify-center items-center size-6 bg-surface text-xs rounded-full ring-2 ring-layer">
-                          <span className="font-medium text-surface-foreground">2+</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Rachel Does and Brian Halligan
-                        </span>
-                      </div>
-                    </div>
-                  </a>
+                  <div className='w-[60px] border-2 border-red-400 text-red-400 rounded-lg p-1 text-sm  text-center'>Paid</div>
+                  {/* <div className='w-[60px]  bg-red-400 text-white rounded-lg p-1 px-2 text-sm  text-center'>Pending</div> */}
+                  {/* <div className='w-[60px] border-2 border-blue-400 text-blue-400 rounded-lg p-1 text-sm  text-center'>Failed</div> */}
+
+
                 </td>
                 
               </tr>
+
 
                <tr className="bg-layer hover:bg-layer-hover">
                 <td className="size-px whitespace-nowrap">
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
-                      <div className="block text-sm text-primary decoration-2 hover:underline">#event</div>
+                      <div className="block text-sm text-primary decoration-2 hover:underline">Catherine Benevolent Funding</div>
                     </div>
                   </a>
                 </td>
                 <td className="h-px w-36 min-w-36">
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
-                      <p className="text-sm text-muted-foreground-1">to paper methods</p>
+                      <p className="text-sm text-muted-foreground-1">2025-10-15</p>
                     </div>
                   </a>
                 </td>
@@ -599,83 +337,39 @@ const TableData = () => {
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
                       <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
-                        Organize
+                        $200
                       </span>
                     </div>
                   </a>
                 </td>
                 <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex gap-x-1">
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"/>
-                      </svg>
-                    </div>
-                  </a>
+                  <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
+                        Will do so
+                      </span>
                 </td>
                 <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex -space-x-2">
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">A</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Alex Brown
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <img className="inline-block size-6 rounded-full ring-2 ring-layer" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar" />
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Amanda Jr.
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">T</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Tibek Winston
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex justify-center items-center size-6 bg-surface text-xs rounded-full ring-2 ring-layer">
-                          <span className="font-medium text-surface-foreground">2+</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Rachel Does and Brian Halligan
-                        </span>
-                      </div>
-                    </div>
-                  </a>
+                  {/* <div className='w-[50px] border-2 border-red-400 text-red-400 rounded-lg p-1 text-sm  text-center'>Paid</div> */}
+                  {/* <div className='w-[60px]  bg-red-400 text-white rounded-lg p-1 px-2 text-sm  text-center'>Pending</div> */}
+                  <div className='w-[60px] border-2 border-blue-400 text-blue-400 rounded-lg p-1 text-sm  text-center'>Failed</div>
+
+
                 </td>
                 
               </tr>
+
 
                <tr className="bg-layer hover:bg-layer-hover">
                 <td className="size-px whitespace-nowrap">
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
-                      <div className="block text-sm text-primary decoration-2 hover:underline">#event</div>
+                      <div className="block text-sm text-primary decoration-2 hover:underline">Catherine Benevolent Funding</div>
                     </div>
                   </a>
                 </td>
                 <td className="h-px w-36 min-w-36">
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
-                      <p className="text-sm text-muted-foreground-1">to paper methods</p>
+                      <p className="text-sm text-muted-foreground-1">2025-10-15</p>
                     </div>
                   </a>
                 </td>
@@ -683,139 +377,22 @@ const TableData = () => {
                   <a className="block relative z-10" href="#">
                     <div className="px-6 py-2">
                       <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
-                        Organize
+                        $200
                       </span>
                     </div>
                   </a>
                 </td>
                 <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex gap-x-1">
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"/>
-                      </svg>
-                    </div>
-                  </a>
+                  <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
+                        Will do so
+                      </span>
                 </td>
                 <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex -space-x-2">
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">A</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Alex Brown
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <img className="inline-block size-6 rounded-full ring-2 ring-layer" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar" />
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Amanda Jr.
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex items-center justify-center size-6 rounded-full bg-surface-5 ring-2 ring-layer">
-                          <span className="text-xs font-medium text-foreground-inverse">T</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Tibek Winston
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <span className="hs-tooltip-toggle inline-flex justify-center items-center size-6 bg-surface text-xs rounded-full ring-2 ring-layer">
-                          <span className="font-medium text-surface-foreground">2+</span>
-                        </span>
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Rachel Does and Brian Halligan
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </td>
-                
-              </tr>
+                  {/* <div className='w-[50px] border-2 border-red-400 text-red-400 rounded-lg p-1 text-sm  text-center'>Paid</div> */}
+                  <div className='w-[60px]  bg-red-400 text-white rounded-lg p-1 px-2 text-sm  text-center'>Pending</div>
+                  {/* <div className='w-[60px] border-2 border-blue-400 text-blue-400 rounded-lg p-1 text-sm  text-center'>Failed</div> */}
 
-              <tr className="bg-layer hover:bg-layer-hover">
-                <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2">
-                      <div className="block text-sm text-primary decoration-2 hover:underline">#softwaretester</div>
-                    </div>
-                  </a>
-                </td>
-                <td className="h-px w-36 min-w-36">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2">
-                      <p className="text-sm text-muted-foreground-1">surance </p>
-                    </div>
-                  </a>
-                </td>
-                <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2">
-                      <span className="inline-flex items-center gap-1.5 py-1 px-2 rounded-lg text-xs font-medium bg-surface text-surface-foreground">
-                        Software
-                      </span>
-                    </div>
-                  </a>
-                </td>
-                <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex gap-x-1">
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-foreground" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                      <svg className="shrink-0 size-3 text-transparent" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                      </svg>
-                    </div>
-                  </a>
-                </td>
-                <td className="size-px whitespace-nowrap">
-                  <a className="block relative z-10" href="#">
-                    <div className="px-6 py-2 flex -space-x-2">
-                      <div className="hs-tooltip inline-flex">
-                        <img className="hs-tooltip-toggle inline-block size-6 rounded-full ring-2 ring-layer" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar" />
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          David Harrison
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <img className="inline-block size-6 rounded-full ring-2 ring-layer" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar" />
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Amanda Jr.
-                        </span>
-                      </div>
-                      <div className="hs-tooltip inline-flex">
-                        <img className="inline-block size-6 rounded-full ring-2 ring-layer" src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80" alt="Avatar" />
-                        <span className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity block absolute invisible z-10 py-1 px-2 bg-tooltip border border-tooltip-line text-xs font-medium text-tooltip-foreground rounded-md shadow-2xs" role="tooltip">
-                          Asia Boone
-                        </span>
-                      </div>
-                    </div>
-                  </a>
+
                 </td>
                 
               </tr>
