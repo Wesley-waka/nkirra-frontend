@@ -67,8 +67,8 @@ const chartConfig = {
 
 const legendData = [
   { label: "Contributions", percent: "60%", amount: "$4,200", color: BRAND_COLORS[1] },
-  { label: "Withdrawals",   percent: "20%", amount: "$1,400", color: BRAND_COLORS[2] },
-  { label: "Earnings",      percent: "12%", amount: "$840",   color: BRAND_COLORS[3] },
+  { label: "Meeting Fees",   percent: "20%", amount: "$1,400", color: BRAND_COLORS[2] },
+  { label: "Benovelent Funding",      percent: "12%", amount: "$840",   color: BRAND_COLORS[3] },
   { label: "Fees",          percent: "8%",  amount: "$560",   color: BRAND_COLORS[4] },
 ]
 
@@ -84,7 +84,7 @@ export function ChartPieDonutText() {
         <div className="flex items-start justify-between">
           <div>
             <CardTitle className="text-base font-semibold tracking-tight text-foreground">
-              Browser Traffic
+              Contributions
             </CardTitle>
             <CardDescription className="text-xs text-muted-foreground mt-0.5">
               January – June 2024
