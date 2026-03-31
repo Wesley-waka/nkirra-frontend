@@ -66,14 +66,14 @@ export function AppSidebar() {
       url: "/settings"
     },
     {
-      title: "Profile",
+      title: "Settings",
       icon: Settings,
-      url: "/settings"
+      url: "/dashboard/settings"
     }
   ];
 
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" >
       <SidebarHeader>
         <div className="flex items-center justify-between w-full">
           {(open || isMobile) && (
