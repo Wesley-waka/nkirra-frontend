@@ -101,6 +101,41 @@ const page = () => {
      * · `overflow-x-hidden`   → no horizontal scroll during sidebar open/close animation
      * · No fixed height here — let content determine height naturally
      */
+    <>
+    <header className="flex flex-col justify-between sm:flex-row sm:items-start  gap-3 flex-wrap shrink-0 bg-[#f8fafc] px-5 py-4 border-b-1 border-b-gray-200">
+            <div className="shrink-0">
+              <h1 className="text-2xl sm:text-3xl font-bold text-brand">Faida Group</h1>
+              <p className="text-sm sm:text-base font-extralight text-gray-500">Dashboard</p>
+            </div>
+    
+            <div className="flex items-center gap-2 sm:gap-4 min-w-0 flex-wrap sm:flex-nowrap">
+              <InputGroupKbd />
+              <div className="flex items-center gap-2 sm:gap-3 shrink-0 order-3 sm:order-2 ml-auto sm:ml-0">
+                
+                <button className="p-1.5 sm:p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors cursor-pointer">
+                  <Image src="/icons/message-text-svgrepo-com.svg" alt="settings" width={14} height={14} className="sm:w-4 sm:h-4 w-3.5 h-3.5" />
+                </button>
+    
+                <button className="p-1.5 sm:p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors cursor-pointer">
+                  <Image src="/icons/notification-svgrepo-com.svg" alt="notifications" width={14} height={14} className="sm:w-4 sm:h-4 w-3.5 h-3.5" />
+                </button>
+              </div>
+              <div className="flex items-center justify-end gap-2 sm:gap-3 min-w-[120px] sm:min-w-[150px] order-2 sm:order-3">
+                <div className='flex flex-col gap-1 sm:gap-2'>
+                  <span className="text-xs sm:text-sm font-semibold text-brand truncate max-w-[70px] sm:max-w-[110px]">Andrew Forbist</span>
+                  <span className="text-xs text-gray-500">Member</span>
+                </div>
+                <Image
+                  src="/jurica.jpg"
+                  width={32}
+                  height={32}
+                  alt="Jurica"
+                  className="rounded-full w-7 h-7 sm:w-8 sm:h-9 object-cover shrink-0"
+                />
+              </div>
+            </div>
+          </header>
+
     <div className="flex flex-col w-full min-w-0 overflow-x-hidden p-5 gap-5">
 
       {/* ── Top bar ──────────────────────────────────────────────────── */}
@@ -329,6 +364,8 @@ const page = () => {
 
       </div>
     </div>
+
+    </>
   )
 }
 

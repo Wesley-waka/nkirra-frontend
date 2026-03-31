@@ -4,7 +4,7 @@ import { InputGroupKbd } from '@/components/searchInput'
 import React from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts"
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import {
   Card,
   CardContent,
@@ -23,10 +23,6 @@ import TableData from '@/components/TableData'
 import { ChartPieDonutText } from '@/components/PieData'
 import { Transactions } from '@/components/Transactions'
 import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from '@/components/ui/combobox'
-import AdminBarChart from '@/components/adminBarChart'
-import FinancialPieChart, { ChartRadialSimple } from '@/components/adminPieChart'
-// import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-
 
 export const description = "A simple area chart"
 
@@ -97,15 +93,6 @@ const activityItems = [
 ]
 
 const page = () => {
-
-  const data = [
-  { month: 'January', desktop: 186 },
-  { month: 'February', desktop: 305 },
-  { month: 'March', desktop: 237 },
-  { month: 'April', desktop: 73 },
-  { month: 'May', desktop: 209 },
-  { month: 'June', desktop: 214 },
-];
   return (
     /**
      * Root wrapper
@@ -114,42 +101,45 @@ const page = () => {
      * · `overflow-x-hidden`   → no horizontal scroll during sidebar open/close animation
      * · No fixed height here — let content determine height naturally
      */
+    <>
+    <header className="flex flex-col justify-between sm:flex-row sm:items-start  gap-3 flex-wrap shrink-0 bg-[#f8fafc] px-5 py-4 border-b-1 border-b-gray-200">
+            <div className="shrink-0">
+              <h1 className="text-2xl sm:text-3xl font-bold text-brand">Faida Group</h1>
+              <p className="text-sm sm:text-base font-extralight text-gray-500">Dashboard</p>
+            </div>
+    
+            <div className="flex items-center gap-2 sm:gap-4 min-w-0 flex-wrap sm:flex-nowrap">
+              <InputGroupKbd />
+              <div className="flex items-center gap-2 sm:gap-3 shrink-0 order-3 sm:order-2 ml-auto sm:ml-0">
+                
+                <button className="p-1.5 sm:p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors cursor-pointer">
+                  <Image src="/icons/message-text-svgrepo-com.svg" alt="settings" width={14} height={14} className="sm:w-4 sm:h-4 w-3.5 h-3.5" />
+                </button>
+    
+                <button className="p-1.5 sm:p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors cursor-pointer">
+                  <Image src="/icons/notification-svgrepo-com.svg" alt="notifications" width={14} height={14} className="sm:w-4 sm:h-4 w-3.5 h-3.5" />
+                </button>
+              </div>
+              <div className="flex items-center justify-end gap-2 sm:gap-3 min-w-[120px] sm:min-w-[150px] order-2 sm:order-3">
+                <div className='flex flex-col gap-1 sm:gap-2'>
+                  <span className="text-xs sm:text-sm font-semibold text-brand truncate max-w-[70px] sm:max-w-[110px]">Andrew Forbist</span>
+                  <span className="text-xs text-gray-500">Member</span>
+                </div>
+                <Image
+                  src="/jurica.jpg"
+                  width={32}
+                  height={32}
+                  alt="Jurica"
+                  className="rounded-full w-7 h-7 sm:w-8 sm:h-9 object-cover shrink-0"
+                />
+              </div>
+            </div>
+          </header>
+
     <div className="flex flex-col w-full min-w-0 overflow-x-hidden p-5 gap-5">
 
       {/* ── Top bar ──────────────────────────────────────────────────── */}
-      <header className="flex flex-col justify-between sm:flex-row sm:items-start  gap-3 flex-wrap shrink-0">
-        <div className="shrink-0">
-          <h1 className="text-2xl sm:text-3xl font-bold text-brand">Faida Group</h1>
-          <p className="text-sm sm:text-base font-extralight text-gray-500">Dashboard</p>
-        </div>
-
-        <div className="flex items-center gap-2 sm:gap-4 min-w-0 flex-wrap sm:flex-nowrap">
-          <InputGroupKbd />
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0 order-3 sm:order-2 ml-auto sm:ml-0">
-            
-            <button className="p-1.5 sm:p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors cursor-pointer">
-              <Image src="/icons/message-text-svgrepo-com.svg" alt="settings" width={14} height={14} className="sm:w-4 sm:h-4 w-3.5 h-3.5" />
-            </button>
-
-            <button className="p-1.5 sm:p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors cursor-pointer">
-              <Image src="/icons/notification-svgrepo-com.svg" alt="notifications" width={14} height={14} className="sm:w-4 sm:h-4 w-3.5 h-3.5" />
-            </button>
-          </div>
-          <div className="flex items-center justify-end gap-2 sm:gap-3 min-w-[120px] sm:min-w-[150px] order-2 sm:order-3">
-            <div className='flex flex-col gap-1 sm:gap-2'>
-              <span className="text-xs sm:text-sm font-semibold text-brand truncate max-w-[70px] sm:max-w-[110px]">Andrew Forbist</span>
-              <span className="text-xs text-gray-500">Member</span>
-            </div>
-            <Image
-              src="/jurica.jpg"
-              width={32}
-              height={32}
-              alt="Jurica"
-              className="rounded-full w-7 h-7 sm:w-8 sm:h-9 object-cover shrink-0"
-            />
-          </div>
-        </div>
-      </header>
+      
 
       {/* <div className="border-b w-full border-gray-200 p-0 "></div> */}
       {/* <div className="border-b w-full border-gray-200 p-0 mx-0 block"></div> */}
@@ -160,139 +150,190 @@ const page = () => {
         · Tablet: 2-column layout with first row spanning full width
         · Mobile: Single column stack
       */}
+      <div className="flex flex-col lg:flex-row gap-4 w-full min-w-0">
 
-      <div className='flex flex-row gap-4 w-full min-w-0  h-[180px]'>
-        <div className='w-1/4 h-full rounded-md p-4 flex flex-col justify-around border border-gray-100'
-  style={{
-    background: 'linear-gradient(135deg, #ffffff 60%, #f0f9ff 40%, #e0f2fe 100%)'
-  }}
->
-  <div className='flex h-[30px] items-center gap-4'>
-    <Image
-      src='/icons/money-white.svg'
-      alt='plus'
-      width={32}
-      height={32}
-      className='rounded-full p-2 bg-red-400'
-    />
-    <div className='text-sm text-gray-700'>Total Amount</div>
-  </div>
-  <div className='text-4xl font-semibold'>$250000</div>
-  <hr />
-  <div className='flex gap-1'>
-    <div className='flex gap-1'>
-      <Image src='/icons/up-graph.svg' className='text-black' alt='' width={30} height={30} />
-      <div className='text-green-600 ml-1'>56.2%</div>
-    </div>
-    <div>from last month</div>
-  </div>
-</div>
+        {/* ══ Column 1 — Left ════════════════════════════════════════════ */}
+        <div className="flex flex-col gap-4 min-w-0 lg:flex-1 order-1 lg:order-1">
 
-        <div className='w-1/4 h-full rounded-md p-4 flex flex-col justify-around border border-gray-100'
-  style={{
-    background: 'linear-gradient(135deg, #ffffff 60%, #f0f9ff 40%, #e0f2fe 100%)'
-  }}
->
-  <div className='flex h-[30px] items-center gap-4'>
-    <Image
-      src='/icons/money-white.svg'
-      alt='plus'
-      width={32}
-      height={32}
-      className='rounded-full p-2 bg-red-400'
-    />
-    <div className='text-sm text-gray-700'>Total Amount</div>
-  </div>
-  <div className='text-4xl font-semibold'>$250000</div>
-  <hr />
-  <div className='flex gap-1'>
-    <div className='flex gap-1'>
-      <Image src='/icons/up-graph.svg' className='text-black' alt='' width={30} height={30} />
-      <div className='text-green-600 ml-1'>56.2%</div>
-    </div>
-    <div>from last month</div>
-  </div>
-</div>
+          {/* Credit card */}
+          <div className="shrink-0">
+            <CreditCard />
+          </div>
 
-       <div className='w-1/4 h-full rounded-md p-4 flex flex-col justify-around border border-gray-100'
-  style={{
-    background: 'linear-gradient(135deg, #ffffff 60%, #f0f9ff 40%, #e0f2fe 100%)'
-  }}
->
-  <div className='flex h-[30px] items-center gap-4'>
-    <Image
-      src='/icons/money-white.svg'
-      alt='plus'
-      width={32}
-      height={32}
-      className='rounded-full p-2 bg-red-400'
-    />
-    <div className='text-sm text-gray-700'>Total Amount</div>
-  </div>
-  <div className='text-4xl font-semibold'>$250000</div>
-  <hr />
-  <div className='flex gap-1'>
-    <div className='flex gap-1'>
-      <Image src='/icons/up-graph.svg' className='text-black' alt='' width={30} height={30} />
-      <div className='text-green-600 ml-1'>56.2%</div>
-    </div>
-    <div>from last month</div>
-  </div>
-</div>
+          {/* Quick-action strip */}
+          <div className="flex h-[80px] items-center justify-between rounded-xl bg-gray-100 divide-x divide-gray-300 shrink-0 cursor-pointer">
+            {quickActions.map(({ icon, label }) => (
+              <button
+                key={label}
+                className="flex flex-col h-full items-center gap-1 py-3 flex-1 hover:bg-gray-200 transition-colors cursor-pointer"
+              >
+                <Image src={icon} alt={label} width={22} height={22} className="   " />
+                <span className="text-sm font-medium text-gray-700">{label}</span>
+              </button>
+            ))}
+          </div>
 
-        <div className='w-1/4 h-full rounded-md p-4 flex flex-col justify-around border border-gray-100'
-  style={{
-    background: 'linear-gradient(135deg, #ffffff 60%, #f0f9ff 40%, #e0f2fe 100%)'
-  }}
->
-  <div className='flex h-[30px] items-center gap-4'>
-    <Image
-      src='/icons/money-white.svg'
-      alt='plus'
-      width={32}
-      height={32}
-      className='rounded-full p-2 bg-red-400'
-    />
-    <div className='text-sm text-gray-700'>Total Amount</div>
-  </div>
-  <div className='text-4xl font-semibold'>$250000</div>
-  <hr />
-  <div className='flex gap-1'>
-    <div className='flex gap-1'>
-      <Image src='/icons/up-graph.svg' className='text-black' alt='' width={30} height={30} />
-      <div className='text-green-600 ml-1'>56.2%</div>
-    </div>
-    <div>from last month</div>
-  </div>
-</div>
-        {/* <div></div>
-        <div></div> */}
-        
-      </div>
+          {/* Ongoing contribution countdown */}
+          <div className="rounded-xl border border-gray-200 p-4 shadow-sm bg-white hover:shadow-md transition-shadow shrink-0 ">
+            <p className="text-lg font-semibold text-brand  mb-2">
+              Ongoing Contribution
+            </p>
+            <div className="flex items-center gap-3">
+              <Image src="/time-1.png" alt="countdown" width={38} height={38} className="opacity-80 shrink-0" />
+              <span className="text-4xl font-extrabold text-[#ef4444] leading-none shrink-0">4</span>
+              <div className="flex flex-col min-w-0">
+                <p className="text-sm text-gray-500 truncate">
+                  Days Remaining of <span className="font-semibold text-gray-700">30</span>
+                </p>
+                <p className="text-base font-semibold text-gray-800 mt-0.5 truncate">
+                  Catherine Benevolent Funding
+                </p>
+              </div>
+            </div>
+          </div>
 
-      <div className='w-full h-[500px] bg-amber-00 flex flex-row justify-between gap-8'>
-        <Card className='flex-1 min-h-0 w-full min-w-2/3'>
-          <AdminBarChart/>
-        </Card>
+          {/* Pending contributions
+              flex-1 → stretches to fill remaining column height so all 3 cols are equal */}
+          <Card className="flex flex-col flex-1 min-h-0">
+            <CardHeader className="pb-2 shrink-0 border-b-1 border-gray-100">
+              <CardTitle className="flex items-center justify-between">
+                <span className="text-lg text-brand">
+                  Pending Contributions
+                </span>
+                <span className="text-sm font-medium bg-amber-50 text-amber-600 px-2 py-0.5 rounded-md">
+                  {pendingItems.length} pending
+                </span>
+              </CardTitle>
+            </CardHeader>
 
-        <Card className='min-h-0 w-full min-w-1/3'>
-          <ChartRadialSimple/>
-        </Card>
-
-
-      </div>
-
-      <div className='flex gap-4 w-full gap-8'>
-        <div className="flex-1 min-h-0 w-full min-w-2/3">
-                    <TableData />
+            <CardContent className="flex flex-col gap-2 flex-1 min-h-0 overflow-y-auto">
+              {pendingItems.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 p-2.5 bg-gray-50 border border-gray-100 rounded-xl min-w-0"
+                >
+                  <div className="flex flex-col items-center justify-center w-9 h-9 rounded-lg bg-[#ef4444] shrink-0">
+                    <span className="text-sm font-medium text-white leading-none">{item.day}</span>
+                    <span className="text-xs text-red-200 mt-0.5 tracking-wide">{item.month}</span>
                   </div>
-                  <div className="flex-1 min-h-0 w-full min-w-1/3">
-                    <Transactions />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium text-gray-800 truncate">{item.name}</p>
+                    <p className="text-sm text-gray-400">{item.amount}</p>
                   </div>
+                  <Button
+                    className="h-7 px-3 rounded-lg bg-[#a9012b] hover:bg-[#880122] text-sm font-medium shrink-0"
+                    variant="default"
+                  >
+                    Pay
+                  </Button>
+                </div>
+              ))}
+            </CardContent>
+
+            <CardFooter className="justify-between items-center border-t border-gray-100 shrink-0 py-3">
+              <span className="text-sm text-gray-500">Total due</span>
+              <span className="text-base font-semibold text-gray-900">$650.00</span>
+            </CardFooter>
+          </Card>
+        </div>
+
+        {/* ══ Column 2 — Center (double width) ══════════════════════════ */}
+        <div className="flex flex-col gap-4 min-w-0 lg:flex-2 order-3 lg:order-2">
+
+          {/* Stat cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 shrink-0">
+            {statCards.map(({ label, value,image,icon ,iconColor,colorBack}) => (
+              <Card key={label} className="">
+                <CardContent className="p-4 flex flex-col gap-8 justify-between ">
+                  <div className="w-14 h-14 bg-red-50 rounded-md flex items-center justify-center shrink-0" style={{ backgroundColor: colorBack }}>
+                    <Image src={image} alt={label} width={24} height={24} />
+                  </div>
+                  <div className='flex flex-col gap-2'>
+                    <div className={`flex text-white  w-[60px] p-0.5 rounded-xl justify-around`} style={{ backgroundColor: iconColor }}>
+                      <Image
+                        src={icon} alt={label} width={14} height={14}
+                      />
+                      24%
+                    </div>
+                    <p className="text-3xl font-semibold text-gray-900 truncate" style={{ color: iconColor }}>{value}</p>
+                    <p className="text-md font-normal text-gray-500 truncate" style={{ color: iconColor }}>{label}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Area chart */}
+          <Card className="shrink-0">
+  <CardHeader className="pb-2 border-b-1 border-gray-100 flex justify-between">
+    <div>
+      <CardTitle className="text-lg">Area Chart</CardTitle>
+      <CardDescription className="text-sm">Showing total Contributions for the last 6 months</CardDescription>
+    </div>
+
+<Combobox items={frameworks}>
+      <ComboboxInput placeholder="Select a framework" />
+      <ComboboxContent>
+        <ComboboxEmpty>No items found.</ComboboxEmpty>
+        <ComboboxList>
+          {(item) => (
+            <ComboboxItem key={item} value={item}>
+              {item}
+            </ComboboxItem>
+          )}
+        </ComboboxList>
+      </ComboboxContent>
+    </Combobox>
+  </CardHeader>
+  <CardContent className="flex justify-center items-center">
+    <ChartContainer config={chartConfig} className="w-full h-[180px]">
+      <AreaChart accessibilityLayer data={chartData} margin={{ left: 8, right: 4 }}>
+        <CartesianGrid vertical={false} />
+        <XAxis
+          dataKey="month"
+          tickLine={false}
+          axisLine={false}
+          tickMargin={8}
+          tickFormatter={(v) => v.slice(0, 3)}
+          tick={{ fontSize: 12 }}
+        />
+        {/* <YAxis tickLine={false} axisLine={false} tickMargin={8} tick={{ fontSize: 12 }}  /> */}
+        <YAxis tickLine={false} axisLine={false} tickMargin={8} tick={{ fontSize: 12 }} label={{ value: 'Contributions', angle: -90, position: 'insideLeft' }} />
+        <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
+        <Area
+          dataKey="desktop"
+          type="natural"
+          fill="var(--color-desktop)"
+          fillOpacity={0.4}
+          stroke="var(--color-desktop)"
+        />
+      </AreaChart>
+    </ChartContainer>
+  </CardContent>
+</Card>
+
+          {/* Table — flex-1 fills the rest of the column height */}
+          <div className="flex-1 min-h-0 w-full min-w-0">
+            <TableData />
+          </div>
+        </div>
+
+        {/* ══ Column 3 — Right ═══════════════════════════════════════════ */}
+        <div className="flex flex-col gap-4 min-w-0 lg:flex-1 order-2 lg:order-3">
+
+          {/* Pie / donut chart */}
+          <div className="shrink-0">
+            <ChartPieDonutText />
+          </div>
+
+          {/* Recent activity — flex-1 fills remaining height so all cols are equal */}
+          <Transactions/>
+        </div>
 
       </div>
-      
     </div>
+
+    </>
   )
 }
 

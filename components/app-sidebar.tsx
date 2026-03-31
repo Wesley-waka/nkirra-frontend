@@ -77,10 +77,10 @@ export function AppSidebar() {
       <SidebarHeader>
         <div className="flex items-center justify-between w-full">
           {(open || isMobile) && (
-            <SidebarMenuButton size="lg" className="data-sidebar-menu-button-lg">
+            <SidebarMenuButton size="lg" className="data-sidebar-menu-button-lg flex items-center">
               <div className="flex aspect-square size-8 items-center justify-center rounded-lg  text-sidebar-primary-foreground">
                 <Image
-                            src="/logo1.png"
+                            src="/auth-5.png"
                             alt="Logo"
                             width={70}
                             height={70}
@@ -88,13 +88,7 @@ export function AppSidebar() {
                           />
               </div>
               <div className="flex flex-col gap-0.5 leading-none">
-                <Image
-                            src="/logo.png"
-                            alt="Logo"
-                            width={70}
-                            height={70}
-                            className="w-[15%] max-w-[70px] min-w-[65px] h-auto"
-                          />
+                <div className="text-4xl font-bold">Nkirra</div>
               </div>
             </SidebarMenuButton>
           )}
@@ -119,11 +113,11 @@ export function AppSidebar() {
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton 
                       asChild 
-                      className={`h-10 text-md  ${isActive ? 'sidebar-menu-active' : ''}`}
+                      className={`h-12 text-base font-semibold ${isActive ? 'sidebar-menu-active' : ''}`}
                     >
                       <a href={item.url}>
-                        <item.icon className="h-10 w-10" />
-                        <span>{item.title}</span>
+                        <item.icon className="h-6 w-6" />
+                        <span className="font-medium">{item.title}</span>
                       </a>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -136,9 +130,9 @@ export function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton className="h-12 text-base">
-              <LogOut className="h-5 w-5" />
-              <span>Logout</span>
+            <SidebarMenuButton className="h-12 text-base font-semibold">
+              <LogOut className="h-6 w-6" />
+              <span className="font-medium">Logout</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
