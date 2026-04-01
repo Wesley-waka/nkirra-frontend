@@ -4,7 +4,7 @@ import { CardTitle } from './ui/card'
 
 const TableData = () => {
   return (
-<div className=" px-4 py-10 sm:px-6 lg:px-0 lg:py-0 mx-auto">
+<div className=" px-4 py-10 sm:px-6 lg:px-0 lg:py-0 mx-auto ">
   {/* Card  */}
   <div className="flex flex-col">
     <div className="-m-1.5 overflow-x-auto">
