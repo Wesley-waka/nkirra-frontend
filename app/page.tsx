@@ -11,6 +11,21 @@ import { motion, useScroll, useTransform, useInView, Variants, Easing } from "fr
 import { useRef } from "react";
 import DownloadButton from "@/components/DownloadButton";
 
+
+type HintState = "idle" | "typing" | "error" | "success";
+ 
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+ 
+const avatars = [
+  { initials: "AK", bg: "bg-blue-100", text: "text-blue-700" },
+  { initials: "MJ", bg: "bg-green-100", text: "text-green-700" },
+  { initials: "TP", bg: "bg-amber-100", text: "text-amber-700" },
+];
+
+
+
 // Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -47,6 +62,83 @@ const staggerContainer = {
 };
 
 export default function Home() {
+   const [email, setEmail] = useState("");
+  const [hint, setHint] = useState<HintState>("idle");
+  const [hintMsg, setHintMsg] = useState("No spam. Unsubscribe anytime.");
+  const [loading, setLoading] = useState(false);
+  const [done, setDone] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const rowVariant =
+    done || hint === "success"
+      ? "bg-green-50 border-green-300"
+      : hint === "error"
+      ? "bg-red-50 border-red-300"
+      : "bg-neutral-100 border-neutral-200 focus-within:bg-white focus-within:border-neutral-400";
+ 
+  const hintColor =
+    hint === "error"
+      ? "text-red-600"
+      : hint === "success"
+      ? "text-green-700"
+      : "text-neutral-400"
+ 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setEmail(val);
+    if (!val) {
+      setHint("idle");
+      setHintMsg("No spam. Unsubscribe anytime.");
+    } else if (isValidEmail(val)) {
+      setHint("typing");
+      setHintMsg("Looks good!");
+    } else {
+      setHint("typing");
+      setHintMsg("Keep typing…");
+    }
+  };
+ 
+  const handleBlur = () => {
+    if (email && !isValidEmail(email)) {
+      setHint("error");
+      setHintMsg("Enter a valid email address.");
+    }
+  };
+ 
+  const handleSubmit = async () => {
+  if (!isValidEmail(email)) {
+    setHint("error");
+    setHintMsg("Enter a valid email address.");
+    inputRef.current?.focus();
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const res = await fetch("http://localhost:3000/users/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+
+    if (!res.ok) throw new Error("Request failed");
+
+    setDone(true);
+    setHint("success");
+    setHintMsg("You're in! We'll be in touch soon.");
+  } catch (error) {
+    setHint("error");
+    setHintMsg("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
+ 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") handleSubmit();
+  };
+ 
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
@@ -183,7 +275,7 @@ const textVariants: Variants = {
               <Button
                 variant="default_bg"
                 className="hidden sm:inline-flex items-center justify-center w-[130px] md:w-[150px] h-[40px] md:h-[44px] text-sm md:text-base bg-brand-primary rounded-xl"
-                onClick={()=>router.push("/auth")}
+                // onClick={()=>router.push("/auth")}
               >
                 Get Started
               </Button>
@@ -220,7 +312,7 @@ const textVariants: Variants = {
                     variant="default_bg"
                     className="w-full h-[42px] text-sm bg-brand-primary rounded-xl"
                     onClick={() => {
-                      router.push("/auth");
+                      // router.push("/auth");
                       setIsMobileMenuOpen(false);
                     }}
                   >
@@ -281,6 +373,7 @@ const textVariants: Variants = {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4"
               >
                 <Button
                   variant="default_bg"
@@ -288,6 +381,15 @@ const textVariants: Variants = {
                 >
                   Request Demo
                 </Button>
+
+                <Button
+                  variant="default_bg"
+                  className="w-[160px] md:w-[190px] h-[46px] md:h-[52px] text-base md:text-sm bg-white text-brand-primary rounded-xl border border-brand-primary"
+                >
+                  Download App
+                </Button>
+
+                
               </motion.div>
 
               {/* Hero Image */}
@@ -778,16 +880,71 @@ const textVariants: Variants = {
                 <h2 className="text-white text-3xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold capitalize leading-none">
                   Ready to Take Charge of Your Finances?
                 </h2>
+                 <div
+          className={`flex items-center gap-2 rounded-xl border px-3.5 py-1.5 transition-all duration-150 ${rowVariant}`}
+        >
+          {/* Mail icon */}
+          <svg
+            className="shrink-0 text-neutral-400"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <rect
+              x="1.5" y="3.5" width="13" height="9" rx="1.5"
+              stroke="currentColor" strokeWidth="1.2"
+            />
+            <path
+              d="M1.5 5.5l6.5 4 6.5-4"
+              stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"
+            />
+          </svg>
+ 
+          <input
+            ref={inputRef}
+            type="email"
+            placeholder="you@example.com"
+            autoComplete="email"
+            value={email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            onKeyDown={handleKeyDown}
+            disabled={done}
+            className="h-9 min-w-0 flex-1 bg-transparent text-sm text-neutral-900 placeholder-neutral-400 outline-none disabled:cursor-not-allowed disabled:opacity-60"
+          />
+ 
+          <button
+            onClick={handleSubmit}
+            disabled={loading || done}
+            className="shrink-0 rounded-lg bg-red-700 px-4 py-1.5 text-sm font-medium text-white transition-all duration-150 hover:bg-neutral-700 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            {done ? "Done" : loading ? "Joining…" : "Join waitlist"}
+          </button>
+        </div>
                 <p className="text-white text-lg sm:text-base md:text-xl font-normal leading-7 md:leading-9">
                   Join thousands of users managing smarter with Nkirra.
                 </p>
               </div>
-              <Button
-                variant="default_bg"
-                className="w-[160px] md:w-[190px] h-[46px] md:h-[52px] text-base md:text-sm bg-brand-primary rounded-xl"
+              
+
+              <div className="mt-6 flex items-center gap-2.5 border-t border-neutral-100 pt-5">
+          <div className="flex">
+            {avatars.map((a, i) => (
+              <div
+                key={a.initials}
+                className={`flex h-6 w-6 items-center justify-center rounded-full border-2 border-white text-[9px] font-medium ${a.bg} ${a.text} ${
+                  i > 0 ? "-ml-1.5" : ""
+                }`}
               >
-                Get Started Free
-              </Button>
+                {a.initials}
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-white">
+            <span className="font-medium text-white">2,841</span> people already joined
+          </p>
+        </div>
             </div>
 
             {/* Right image */}
