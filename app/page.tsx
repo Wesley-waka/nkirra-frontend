@@ -1004,9 +1004,8 @@ const textVariants: Variants = {
     <div className="flex flex-col gap-4">
       <h3 className="text-lg sm:text-base md:text-lg font-semibold">Contact</h3>
       <ul className="flex flex-col gap-2 text-gray-500 text-base sm:text-sm md:text-base">
-        <li>Email: info@example.com</li>
-        <li>Phone: +1 234 567 890</li>
-        <li>Location: Nairobi, Kenya</li>
+        <li>Email: contact@nkirra.com</li>
+       
       </ul>
     </div>
 
