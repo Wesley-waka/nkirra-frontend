@@ -116,7 +116,7 @@ export default function Home() {
   setLoading(true);
 
   try {
-    const res = await fetch("http://localhost:3000/users/send-email", {
+    const res = await fetch("https://api.nkirra.com/users/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
