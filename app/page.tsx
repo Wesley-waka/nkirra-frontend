@@ -391,6 +391,7 @@ const textVariants: Variants = {
                 <Button
                   variant="default_bg"
                   className="w-[160px] md:w-[190px] h-[46px] md:h-[52px] text-base md:text-sm bg-brand-primary rounded-xl"
+                  onClick={() => scrollToWaitlist()}
                 >
                   Request Demo
                 </Button>
@@ -398,6 +399,7 @@ const textVariants: Variants = {
                 <Button
                   variant="default_bg"
                   className="w-[160px] md:w-[190px] h-[46px] md:h-[52px] text-base md:text-sm bg-white text-brand-primary rounded-xl border border-brand-primary"
+                  onClick={() => scrollToWaitlist()}
                 >
                   Download App
                 </Button>

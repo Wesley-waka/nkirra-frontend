@@ -9,6 +9,19 @@ import DownloadButton from "@/components/DownloadButton";
 export default function AboutUs() {
     const router = useRouter();
       const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+        const scrollToWaitlist = () => {
+          // route to index page waitlist section
+          router.push("/");
+          setTimeout(() => {
+          const element = document.getElementById('waitlist');
+          if (element) {
+            element.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+          }, 100);
+        };
     
   return (
     <>
@@ -41,6 +54,7 @@ export default function AboutUs() {
                      <Button
                        variant="default_bg"
                        className="hidden sm:inline-flex items-center justify-center w-[130px] md:w-[150px] h-[40px] md:h-[44px] text-sm md:text-base bg-brand-primary rounded-xl"
+                       onClick={() => scrollToWaitlist()}
                      >
                        Get Started
                      </Button>
@@ -76,6 +90,7 @@ export default function AboutUs() {
                          <Button
                            variant="default_bg"
                            className="w-full h-[42px] text-base bg-brand-primary rounded-xl"
+                           onClick={() => scrollToWaitlist()}
                          >
                            Get Started
                          </Button>
@@ -184,6 +199,7 @@ export default function AboutUs() {
                        <Button
                        variant="default_bg"
                        className="hidden sm:inline-flex items-center justify-center w-[130px] md:w-[150px] h-[40px] md:h-[44px] text-sm md:text-base bg-brand-primary rounded-xl"
+                       onClick={()=>scrollToWaitlist()}
                      >
                        Get Started
                      </Button>
