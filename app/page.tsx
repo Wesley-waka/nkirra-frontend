@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { motion, useScroll, useTransform, useInView, Variants, Easing } from "framer-motion";
 import { useRef } from "react";
 import DownloadButton from "@/components/DownloadButton";
-
+import { ToastContainer, toast } from 'react-toastify';
 
 type HintState = "idle" | "typing" | "error" | "success";
  
@@ -127,9 +127,11 @@ export default function Home() {
     setDone(true);
     setHint("success");
     setHintMsg("You're in! We'll be in touch soon.");
+    toast.success("You're in! We'll be in touch soon.");
   } catch (error) {
     setHint("error");
     setHintMsg("Something went wrong. Please try again.");
+    toast.error("Something went wrong. Please try again.");
   } finally {
     setLoading(false);
   }
@@ -141,6 +143,16 @@ export default function Home() {
  
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  const scrollToWaitlist = () => {
+    const element = document.getElementById('waitlist');
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
   
   // Scroll refs for animations
   const featuresRef = useRef(null);
@@ -235,6 +247,7 @@ const textVariants: Variants = {
 
   return (
     <>
+    <ToastContainer/>
       <div className="relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('https://preline.co/assets/svg/examples/polygon-bg-element.svg')] dark:before:bg-[url('https://preline.co/assets/svg/examples-dark/squared-bg-element.svg')] before:bg-no-repeat before:bg-top before:size-full before:-z-[4] before:-translate-x-1/2">
 
         {/* ── Hero section ─────────────────────────────────────────── */}
@@ -275,7 +288,7 @@ const textVariants: Variants = {
               <Button
                 variant="default_bg"
                 className="hidden sm:inline-flex items-center justify-center w-[130px] md:w-[150px] h-[40px] md:h-[44px] text-sm md:text-base bg-brand-primary rounded-xl"
-                // onClick={()=>router.push("/auth")}
+                onClick={scrollToWaitlist}
               >
                 Get Started
               </Button>
@@ -312,7 +325,7 @@ const textVariants: Variants = {
                     variant="default_bg"
                     className="w-full h-[42px] text-sm bg-brand-primary rounded-xl"
                     onClick={() => {
-                      // router.push("/auth");
+                      scrollToWaitlist();
                       setIsMobileMenuOpen(false);
                     }}
                   >
@@ -862,7 +875,7 @@ const textVariants: Variants = {
         </section>
 
         {/* ── CTA banner ───────────────────────────────────────────── */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20" id="waitlist">
           <div className="w-full bg-blue-900 rounded-[20px] p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-8 lg:gap-10 items-center overflow-hidden">
 
             {/* Left copy */}
