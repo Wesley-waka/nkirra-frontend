@@ -16,8 +16,23 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Nkirra - Finance For Everyone.",
+  metadataBase: new URL("https://nkirra.com"),
+  title: {
+    default: "Nkirra - Finance For Everyone",
+    template: "%s | Nkirra",
+  },
   description: "Finance for everyone.",
+  openGraph: {
+    title: "Nkirra - Finance For Everyone",
+    description: "Finance for everyone.",
+    siteName: "Nkirra",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nkirra - Finance For Everyone",
+    description: "Finance for everyone.",
+  },
 };
 
 
